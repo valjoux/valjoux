@@ -1,5 +1,5 @@
 {
-  "name": "@valjoux/date-shift",
+  "name": "@valjoux/util-bitwise",
   "version": "0.0.1-alpha.0",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
@@ -12,12 +12,7 @@
   },
   "scripts": {
     "pub": "npm publish",
-    "test": "node -r @babel/register test/date-shift.test.js"
-  },
-  "dependencies": {
-    "@aryth/comparer": "^0.0.8",
-    "@valjoux/day-shift": "^0.0.1-alpha.0",
-    "@valjoux/util-month-days": "^0.0.1-alpha.0"
+    "test": "node -r @babel/register test/test.index.js"
   },
   "repository": {
     "type": "git",
