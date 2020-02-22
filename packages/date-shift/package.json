@@ -1,0 +1,40 @@
+{
+  "name": "@valjoux/date-shift",
+  "version": "0.0.0",
+  "description": "date & time util toolset",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "pub": "npm publish",
+    "test": "node -r @babel/register test/date-shift.test.js"
+  },
+  "dependencies": {
+    "@aryth/comparer": "^0.0.8",
+    "@valjoux/util-month-days": "^0.0.0",
+    "@valjoux/day-shift": "^0.0.0"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoyeungw/vect.git"
+  },
+  "keywords": [
+    "array",
+    "vector",
+    "matrix",
+    "object"
+  ],
+  "author": "Hoyeung Wong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hoyeungw/vect"
+  },
+  "homepage": "https://github.com/hoyeungw/vect#readme"
+}
