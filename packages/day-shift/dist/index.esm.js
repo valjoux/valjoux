@@ -1,80 +1,72 @@
-import { readYearMonth, readDay } from '@valjoux/util-bitwise';
 import { isLeap } from '@valjoux/util-leap-year';
-import { monthDays as monthDays$1 } from '@valjoux/util-month-days';
+import { monthDays } from '@valjoux/util-month-days';
 
-const forwardDays = (int, dif) => {
-  let ym = readYearMonth(int),
-      d = readDay(int) + dif,
-      y = ym[0];
-  const lpEnt = {
+const forwardDays = (ymd, dif) => {
+  let [y, m, d] = ymd,
+      q;
+  const lp = {
+    y,
+    m,
     cr: isLeap(y),
     nx: isLeap(y + 1)
   };
-  const nxY = nextYear.bind(lpEnt),
-        nxM = nextMonth.bind(lpEnt),
-        yDays = yearDays.bind(lpEnt),
-        mDays = monthDays.bind(lpEnt);
-  let q;
+  d += dif;
 
-  while (d >= (q = yDays(ym))) d -= q, nxY(ym);
+  while (d > (q = nextYDs.call(lp))) d -= q, nextY.call(lp);
 
-  while (d > (q = mDays(ym))) d -= q, nxM(ym);
+  while (d > (q = nextMDs.call(lp))) d -= q, nextM.call(lp);
 
-  return ym.push(d), ym;
+  return ymd[0] = lp.y, ymd[1] = lp.m, ymd[2] = d, ymd; // return [lp.y, lp.m, d]
 };
 
-const nextYear = function (ym) {
-  return ym[0]++, this.cr = this.nx, this.nx = isLeap(ym[0]), ym;
+const nextY = function () {
+  this.y++, this.cr = this.nx, this.nx = isLeap(this.y);
 };
 
-const nextMonth = function (ym) {
-  return ym[1] >= 12 ? (ym[1] = 1, nextYear.call(this, ym)) : (ym[1]++, ym);
+const nextM = function () {
+  this.m >= 12 ? (this.m = 1, nextY.call(this)) : this.m++;
 };
 
-const yearDays = function (ym) {
-  return this.cr && ym[1] <= 2 || 2 < ym[1] && this.nx ? 366 : 365;
+const nextYDs = function () {
+  return this.cr && this.m <= 2 || 2 < this.m && this.nx ? 366 : 365;
 };
 
-const monthDays = function (ym) {
-  return monthDays$1(ym[1], this.cr);
+const nextMDs = function () {
+  return monthDays(this.m, this.cr);
 };
 
-const backwardDays = (int, dif) => {
-  let ym = readYearMonth(int),
-      d = readDay(int) + dif,
-      y = ym[0];
-  const lpEnt = {
+const backwardDays = (ymd, dif) => {
+  let [y, m, d] = ymd,
+      q;
+  const lp = {
+    y,
+    m,
     py: isLeap(y - 1),
     cr: isLeap(y)
   };
-  const prvY = prevYear.bind(lpEnt),
-        prvM = prevMonth.bind(lpEnt),
-        prvYDays = prevYearDays.bind(lpEnt),
-        prvMDays = prevMonthDays.bind(lpEnt);
-  let q;
+  d += dif;
 
-  while (d + (q = prvYDays(ym)) <= 0) d += q, prvY(ym);
+  while (d + (q = prevYDs.call(lp)) <= 0) d += q, prevY.call(lp);
 
-  while (d <= 0) d += prvMDays(ym), prvM(ym);
+  while (d <= 0) d += prevMDs.call(lp), prevM.call(lp);
 
-  return ym.push(d), ym;
+  return ymd[0] = lp.y, ymd[1] = lp.m, ymd[2] = d, ymd; // return [lp.y, lp.m, d]
 };
 
-const prevYear = function (ym) {
-  return ym[0]--, this.cr = this.py, this.py = isLeap(ym[0]), ym;
+const prevY = function () {
+  this.y--, this.cr = this.py, this.py = isLeap(this.y);
 };
 
-const prevMonth = function (ym) {
-  return ym[1] <= 1 ? (ym[1] = 12, prevYear.call(this, ym)) : (ym[1]--, ym);
+const prevM = function () {
+  this.m <= 1 ? (this.m = 12, prevY.call(this)) : this.m--;
 };
 
-const prevYearDays = function (ym) {
-  return this.py && ym[1] <= 2 || 2 < ym[1] && this.cr ? 366 : 365;
+const prevYDs = function () {
+  return this.py && this.m <= 2 || 2 < this.m && this.cr ? 366 : 365;
 };
 
-const prevMonthDays = function (ym) {
-  let m = ym[1];
-  return m <= 1 ? monthDays$1(12, this.py) : monthDays$1(m - 1, this.cr);
+const prevMDs = function () {
+  return this.m <= 1 ? monthDays(12, this.py) : monthDays(this.m - 1, this.cr);
 };
 
 export { backwardDays, forwardDays };

@@ -1,14 +1,14 @@
 import { isLeap } from '@valjoux/util-leap-year'
 import { monthDays } from '@valjoux/util-month-days'
+import { intToYmd, ymdToInt } from '@valjoux/convert'
 
-export const backwardDays = (ymd, dif) => {
-  let [y, m, d] = ymd, q
+export const backwardDays = (int, dif) => {
+  let [y, m, d] = intToYmd(int), q
   const lp = { y, m, py: isLeap(y - 1), cr: isLeap(y) }
   d += dif
   while (d + (q = prevYDs.call(lp)) <= 0) d += q, prevY.call(lp)
   while (d <= 0) d += prevMDs.call(lp), prevM.call(lp)
-  return ymd[0] = lp.y, ymd[1] = lp.m, ymd[2] = d, ymd
-  // return [lp.y, lp.m, d]
+  return ymdToInt([lp.y, lp.m, d])
 }
 
 const prevY = function () { this.y--, this.cr = this.py, this.py = isLeap(this.y) }

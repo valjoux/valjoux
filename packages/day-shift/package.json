@@ -15,7 +15,6 @@
     "test": "node -r @babel/register test/day-shift.test.js"
   },
   "dependencies": {
-    "@valjoux/util-bitwise": "^0.0.1-alpha.0",
     "@valjoux/util-leap-year": "^0.0.1-alpha.0",
     "@valjoux/util-month-days": "^0.0.1-alpha.0"
   },

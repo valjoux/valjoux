@@ -1,11 +1,20 @@
-import { Xr, says } from '@spare/logger'
-import { ymdToInt } from '@valjoux/convert'
-import { shiftMonth } from '../src/ymd'
+import { Xr, says, deco } from '@spare/logger'
+import { shiftMonth } from '../src/shifters'
 
-const YMD = 'ymd', INT = 'int', SHIFT = 'shift', RESULT = 'result'
-let ymd, int, dif
+const YMD = 'ymd', SHIFT = 'shift', RESULT = 'result'
 
-Xr()[YMD](ymd = [2020, 2, 29])[INT](int = ymdToInt(ymd))[SHIFT](dif = +3)[RESULT](shiftMonth(int, dif)) |> says.forward
-Xr()[YMD](ymd = [2021, 1, 1])[INT](int = ymdToInt(ymd))[SHIFT](dif = -3)[RESULT](shiftMonth(int, dif)) |> says.backward
-Xr()[YMD](ymd = [2020, 2, 21])[INT](int = ymdToInt(ymd))[SHIFT](dif = +12)[RESULT](shiftMonth(int, dif)) |> says.forward
-Xr()[YMD](ymd = [2020, 2, 21])[INT](int = ymdToInt(ymd))[SHIFT](dif = -12)[RESULT](shiftMonth(int, dif)) |> says.backward
+const candidates = [
+  { ymd: [2020, 2, 29], dif: +3 },
+  { ymd: [2020, 2, 29], dif: -6 },
+  { ymd: [2021, 1, 1], dif: -3 },
+  { ymd: [2020, 2, 21], dif: +12 },
+  { ymd: [2020, 2, 21], dif: -12 },
+]
+
+for (let { ymd, dif } of candidates) {
+  Xr()
+    [YMD](ymd |> deco)
+    [SHIFT](dif)
+    [RESULT](shiftMonth(ymd, dif) |> deco)
+    |> says[dif >= 0 ? 'forward' : 'backward']
+}

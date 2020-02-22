@@ -15,9 +15,10 @@
     "test": "node -r @babel/register test/date-shift.test.js"
   },
   "dependencies": {
-    "@aryth/comparer": "^0.0.8",
-    "@valjoux/day-shift": "^0.0.1-alpha.0",
-    "@valjoux/util-month-days": "^0.0.1-alpha.0"
+    "@valjoux/util-ymd": "^0.0.1-alpha.0",
+    "@valjoux/day-shift":"^0.0.1-alpha.0",
+    "@valjoux/convert": "^0.0.1-alpha.0",
+    "@aryth/comparer":"^0.0.8"
   },
   "repository": {
     "type": "git",
