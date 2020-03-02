@@ -1,4 +1,4 @@
-# @valjoux/date-shift
+# @valjoux/eta
 
 [![npm version][badge-npm-version]][url-npm]
 [![npm download monthly][badge-npm-download-monthly]][url-npm]
@@ -10,19 +10,20 @@
 [![github commit total][badge-github-commit-count]][url-github]
 
 [//]: <> (Shields)
-[badge-npm-version]: https://flat.badgen.net/npm/v/@valjoux/date-shift
-[badge-npm-download-monthly]: https://flat.badgen.net/npm/dm/@valjoux/date-shift
-[badge-npm-download-total]:https://flat.badgen.net/npm/dt/@valjoux/date-shift
-[badge-npm-dependents]: https://flat.badgen.net/npm/dependents/@valjoux/date-shift
-[badge-npm-license]: https://flat.badgen.net/npm/license/@valjoux/date-shift
-[badge-pp-install-size]: https://flat.badgen.net/packagephobia/install/@valjoux/date-shift
+[badge-npm-version]: https://flat.badgen.net/npm/v/@valjoux/eta
+[badge-npm-download-monthly]: https://flat.badgen.net/npm/dm/@valjoux/eta
+[badge-npm-download-total]:https://flat.badgen.net/npm/dt/@valjoux/eta
+[badge-npm-dependents]: https://flat.badgen.net/npm/dependents/@valjoux/eta
+[badge-npm-license]: https://flat.badgen.net/npm/license/@valjoux/eta
+[badge-pp-install-size]: https://flat.badgen.net/packagephobia/install/@valjoux/eta
 [badge-github-last-commit]: https://flat.badgen.net/github/last-commit/hoyeungw/vect
 [badge-github-commit-count]: https://flat.badgen.net/github/commits/hoyeungw/vect
 
 [//]: <> (Link)
-[url-npm]: https://npmjs.org/package/@valjoux/date-shift
-[url-pp]: https://packagephobia.now.sh/result?p=@valjoux/date-shift
+[url-npm]: https://npmjs.org/package/@valjoux/eta
+[url-pp]: https://packagephobia.now.sh/result?p=@valjoux/eta
 [url-github]: https://github.com/hoyeungw/vect
+
 ##### Util for array
 
 #### Features
@@ -31,7 +32,7 @@
 
 #### Install
 ```console
-$ npm install @valjoux/date-shift
+$ npm install @valjoux/eta
 ```
 
 #### Usage

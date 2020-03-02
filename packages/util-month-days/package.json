@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoyeungw/vect.git"
+    "url": "git+https://github.com/hoyeungw/valjoux.git"
   },
   "keywords": [
     "array",
@@ -27,7 +27,7 @@
   "author": "Hoyeung Wong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hoyeungw/vect"
+    "url": "https://github.com/hoyeungw/valjoux"
   },
-  "homepage": "https://github.com/hoyeungw/vect#readme"
+  "homepage": "https://github.com/hoyeungw/valjoux#readme"
 }

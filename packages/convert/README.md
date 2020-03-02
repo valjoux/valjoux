@@ -1,4 +1,4 @@
-# @valjoux/temp
+# @valjoux/convert
 
 [![npm version][badge-npm-version]][url-npm]
 [![npm download monthly][badge-npm-download-monthly]][url-npm]
@@ -10,18 +10,18 @@
 [![github commit total][badge-github-commit-count]][url-github]
 
 [//]: <> (Shields)
-[badge-npm-version]: https://flat.badgen.net/npm/v/@valjoux/asdf
-[badge-npm-download-monthly]: https://flat.badgen.net/npm/dm/@valjoux/asdf
-[badge-npm-download-total]:https://flat.badgen.net/npm/dt/@valjoux/asdf
-[badge-npm-dependents]: https://flat.badgen.net/npm/dependents/@valjoux/asdf
-[badge-npm-license]: https://flat.badgen.net/npm/license/@valjoux/asdf
-[badge-pp-install-size]: https://flat.badgen.net/packagephobia/install/@valjoux/asdf
+[badge-npm-version]: https://flat.badgen.net/npm/v/@valjoux/convert
+[badge-npm-download-monthly]: https://flat.badgen.net/npm/dm/@valjoux/convert
+[badge-npm-download-total]:https://flat.badgen.net/npm/dt/@valjoux/convert
+[badge-npm-dependents]: https://flat.badgen.net/npm/dependents/@valjoux/convert
+[badge-npm-license]: https://flat.badgen.net/npm/license/@valjoux/convert
+[badge-pp-install-size]: https://flat.badgen.net/packagephobia/install/@valjoux/convert
 [badge-github-last-commit]: https://flat.badgen.net/github/last-commit/hoyeungw/vect
 [badge-github-commit-count]: https://flat.badgen.net/github/commits/hoyeungw/vect
 
 [//]: <> (Link)
-[url-npm]: https://npmjs.org/package/@valjoux/asdf
-[url-pp]: https://packagephobia.now.sh/result?p=@valjoux/asdf
+[url-npm]: https://npmjs.org/package/@valjoux/convert
+[url-pp]: https://packagephobia.now.sh/result?p=@valjoux/convert
 [url-github]: https://github.com/hoyeungw/vect
 ##### Util for array
 
@@ -31,7 +31,7 @@
 
 #### Install
 ```console
-$ npm install @valjoux/temp
+$ npm install @valjoux/convert
 ```
 
 #### Usage

@@ -1,7 +1,7 @@
 {
-  "name": "@valjoux/date-shift",
+  "name": "@valjoux/format-time",
   "version": "0.0.1",
-  "description": "date & time util toolset",
+  "description": "timer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -12,13 +12,9 @@
   },
   "scripts": {
     "pub": "npm publish",
-    "test": "node -r @babel/register test/date-shift.test.js"
+    "test": "node -r @babel/register test/format-time.test.js"
   },
   "dependencies": {
-    "@aryth/comparer": "^0.0.10",
-    "@valjoux/convert": "^0.0.1",
-    "@valjoux/day-shift": "^0.0.1",
-    "@valjoux/util-ymd": "^0.0.1"
   },
   "repository": {
     "type": "git",
