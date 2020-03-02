@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/eta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "timer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -15,7 +15,7 @@
     "test": "node -r @babel/register test/eta.test.js"
   },
   "dependencies": {
-    "@valjoux/format-time": "^0.0.1"
+    "@valjoux/format-time": "^0.0.2"
   },
   "repository": {
     "type": "git",

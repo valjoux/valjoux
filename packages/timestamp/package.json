@@ -1,7 +1,7 @@
 {
-  "name": "@valjoux/format-time",
+  "name": "@valjoux/timestamp",
   "version": "0.0.2",
-  "description": "timer",
+  "description": "variant format of date / times",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -12,7 +12,12 @@
   },
   "scripts": {
     "pub": "npm publish",
-    "test": "node -r @babel/register test/format-time.test.js"
+    "test": "node -r @babel/register test/timestamp.test.js"
+  },
+  "dependencies": {
+    "@valjoux/convert": "^0.0.2",
+    "@valjoux/format-date-time": "^0.0.2",
+    "@valjoux/format-time": "^0.0.2"
   },
   "repository": {
     "type": "git",
