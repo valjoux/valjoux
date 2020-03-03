@@ -7,6 +7,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prewatch": "npm run bootstrap",
+    "upint": "yarn upgrade-interactive --latest",
+    "pub": "lerna exec -- npm publish",
     "build": "lerna exec --parallel -- rollup -c ../../rollup.config.js",
     "build-specific": "lerna exec --scope=@valjoux/matrix-init -- rollup -c ../../rollup.config.js",
     "watch": "lerna exec --parallel -- rollup -c ../../rollup.config.js -w",
@@ -35,7 +37,6 @@
     "@vect/matrix": "^0.1.3",
     "@vect/vector-mapper": "^0.1.2",
     "crostab": "^0.3.9",
-    "elprimero": "^0.1.45",
     "lerna": "^3.20.2",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
