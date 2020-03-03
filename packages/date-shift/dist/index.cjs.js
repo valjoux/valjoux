@@ -7,6 +7,14 @@ var utilYmd = require('@valjoux/util-ymd');
 var dayShift = require('@valjoux/day-shift');
 var comparer = require('@aryth/comparer');
 
+/**
+ *
+ * @param {[number,number,number]} ymd
+ * @param {[number,number,number]} lo
+ * @param {[number,number,number]} hi
+ * @returns {boolean|boolean}
+ */
+
 const belongTo = (ymd, lo, hi) => convert.ymdToInt(lo) <= (ymd = convert.ymdToInt(ymd)) && ymd <= convert.ymdToInt(hi);
 
 const shiftDay = (ymd, days) => {

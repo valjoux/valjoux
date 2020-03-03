@@ -3,6 +3,14 @@ import { monthDays } from '@valjoux/util-ymd';
 import { forwardDays, backwardDays } from '@valjoux/day-shift';
 import { min } from '@aryth/comparer';
 
+/**
+ *
+ * @param {[number,number,number]} ymd
+ * @param {[number,number,number]} lo
+ * @param {[number,number,number]} hi
+ * @returns {boolean|boolean}
+ */
+
 const belongTo = (ymd, lo, hi) => ymdToInt(lo) <= (ymd = ymdToInt(ymd)) && ymd <= ymdToInt(hi);
 
 const shiftDay = (ymd, days) => {
