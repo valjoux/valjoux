@@ -15,7 +15,7 @@
     "test": "node -r @babel/register test/strategies.test.js"
   },
   "dependencies": {
-    "@analys/crostab": "^0.0.8",
+    "@analys/crostab": "^0.0.9",
     "@aryth/math": "^0.0.10",
     "@palett/fluo-vector": "^0.0.12",
     "@valjoux/eta": "^0.0.2",
