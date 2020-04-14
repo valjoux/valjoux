@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var utilBitwise = require('@valjoux/util-bitwise');
 
-const pdz = (n, l) => {
+const pa = (n, l) => {
   n = '' + n;
 
   while (n.length < l) n = '0' + n;
@@ -12,7 +12,7 @@ const pdz = (n, l) => {
   return n;
 };
 
-const joinYMD = (y, m, d, l = '-') => ((y = +y) < 1000 ? pdz(y, 4) : y) + l + ((m = +m) < 10 ? pdz(m, 2) : m) + l + ((d = +d) < 10 ? pdz(d, 2) : d);
+const joinYMD = (y, m, d, l = '-') => ((y = +y) < 1000 ? pa(y, 4) : y) + l + ((m = +m) < 10 ? pa(m, 2) : m) + l + ((d = +d) < 10 ? pa(d, 2) : d);
 
 const dashToDate = dst => new Date(+dst.slice(0, 4), +dst.slice(5, 7) - 1, +dst.slice(8, 10));
 const intToDate = int => new Date(utilBitwise.readYear(int), utilBitwise.readMonth(int) - 1, utilBitwise.readDay(int));

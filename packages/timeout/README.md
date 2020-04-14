@@ -16,13 +16,13 @@
 [badge-npm-dependents]: https://flat.badgen.net/npm/dependents/@valjoux/timeout
 [badge-npm-license]: https://flat.badgen.net/npm/license/@valjoux/timeout
 [badge-pp-install-size]: https://flat.badgen.net/packagephobia/install/@valjoux/timeout
-[badge-github-last-commit]: https://flat.badgen.net/github/last-commit/hoyeungw/vect
-[badge-github-commit-count]: https://flat.badgen.net/github/commits/hoyeungw/vect
+[badge-github-last-commit]: https://flat.badgen.net/github/last-commit/hoyeungw/valjoux
+[badge-github-commit-count]: https://flat.badgen.net/github/commits/hoyeungw/valjoux
 
 [//]: <> (Link)
 [url-npm]: https://npmjs.org/package/@valjoux/timeout
 [url-pp]: https://packagephobia.now.sh/result?p=@valjoux/timeout
-[url-github]: https://github.com/hoyeungw/vect
+[url-github]: https://github.com/hoyeungw/valjoux
 
 ##### Util for array
 
