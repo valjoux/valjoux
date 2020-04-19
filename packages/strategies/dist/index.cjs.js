@@ -2,13 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var crostab = require('@analys/crostab');
+var math = require('@aryth/math');
+var fluoVector = require('@palett/fluo-vector');
 var eta = require('@valjoux/eta');
 var timestamp = require('@valjoux/timestamp');
-var math = require('@aryth/math');
-var crostab = require('@analys/crostab');
-var matrixInit = require('@vect/matrix-init');
-var fluoVector = require('@palett/fluo-vector');
 var columnsMapper = require('@vect/columns-mapper');
+var matrixInit = require('@vect/matrix-init');
 
 /**
  * Cross by candidates and functions, under certain repeat.
@@ -26,7 +26,7 @@ function strategies({
   candidates,
   methods,
   showAverage = true,
-  showParams = true
+  showParams = false
 }) {
   const eta$1 = new eta.Eta(),
         fname = Object.keys(methods),
