@@ -30,12 +30,26 @@ const shiftYear = (dashed, dif) => {
 
 const year = dashed => +dashed.slice(0, 4);
 const month = dashed => +dashed.slice(5, 7);
- // export const ymd = dashed => [+dashed.slice(0, 4), +dashed.slice(5, 7), +dashed.slice(8, 10)]
-
-const toYearMonth = dashed => dashed.slice(0, 7);
+const day = dashed => +dashed.slice(8, 10);
+const yearMonth = dashed => dashed.slice(0, 7);
 const seasonEnds = year => {
   const islp = utilLeapYear.isLeap(year);
   return [3, 6, 9, 12].map(m => convert.dashify(year, m, utilMonthDays.monthDays(year, m, islp)));
+};
+const monthLo = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return convert.dashify(y, m, utilMonthDays.monthDays(y, 1));
+};
+const monthHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return convert.dashify(y, m, utilMonthDays.monthDays(y, m));
+};
+const monthLoHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return [convert.dashify(y, m, 1), convert.dashify(y, m, utilMonthDays.monthDays(y, m))];
 };
 const seasonLo = dashed => {
   const y = year(dashed),
@@ -55,24 +69,11 @@ const seasonLoHi = dashed => {
         hi = utilMonthDays.seasonLast(m);
   return [convert.dashify(y, hi - 2, 1), convert.dashify(y, hi, utilMonthDays.monthDays(y, hi))];
 };
-const monthLo = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return convert.dashify(y, m, utilMonthDays.monthDays(y, 1));
-};
-const monthHi = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return convert.dashify(y, m, utilMonthDays.monthDays(y, m));
-};
-const monthLoHi = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return [convert.dashify(y, m, 1), convert.dashify(y, m, utilMonthDays.monthDays(y, m))];
-};
 
 const within = (dashed, lo, hi) => lo.localeCompare(dashed) <= 0 && dashed.localeCompare(hi) <= 0;
 
+exports.day = day;
+exports.month = month;
 exports.monthHi = monthHi;
 exports.monthLo = monthLo;
 exports.monthLoHi = monthLoHi;
@@ -84,5 +85,6 @@ exports.shiftDay = shiftDay;
 exports.shiftMonth = shiftMonth;
 exports.shiftQuarter = shiftQuarter;
 exports.shiftYear = shiftYear;
-exports.toYearMonth = toYearMonth;
 exports.within = within;
+exports.year = year;
+exports.yearMonth = yearMonth;

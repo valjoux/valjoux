@@ -26,12 +26,26 @@ const shiftYear = (dashed, dif) => {
 
 const year = dashed => +dashed.slice(0, 4);
 const month = dashed => +dashed.slice(5, 7);
- // export const ymd = dashed => [+dashed.slice(0, 4), +dashed.slice(5, 7), +dashed.slice(8, 10)]
-
-const toYearMonth = dashed => dashed.slice(0, 7);
+const day = dashed => +dashed.slice(8, 10);
+const yearMonth = dashed => dashed.slice(0, 7);
 const seasonEnds = year => {
   const islp = isLeap(year);
   return [3, 6, 9, 12].map(m => dashify(year, m, monthDays(year, m, islp)));
+};
+const monthLo = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return dashify(y, m, monthDays(y, 1));
+};
+const monthHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return dashify(y, m, monthDays(y, m));
+};
+const monthLoHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return [dashify(y, m, 1), dashify(y, m, monthDays(y, m))];
 };
 const seasonLo = dashed => {
   const y = year(dashed),
@@ -51,22 +65,7 @@ const seasonLoHi = dashed => {
         hi = seasonLast(m);
   return [dashify(y, hi - 2, 1), dashify(y, hi, monthDays(y, hi))];
 };
-const monthLo = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return dashify(y, m, monthDays(y, 1));
-};
-const monthHi = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return dashify(y, m, monthDays(y, m));
-};
-const monthLoHi = dashed => {
-  const y = year(dashed),
-        m = month(dashed);
-  return [dashify(y, m, 1), dashify(y, m, monthDays(y, m))];
-};
 
 const within = (dashed, lo, hi) => lo.localeCompare(dashed) <= 0 && dashed.localeCompare(hi) <= 0;
 
-export { monthHi, monthLo, monthLoHi, seasonEnds, seasonHi, seasonLo, seasonLoHi, shiftDay, shiftMonth, shiftQuarter, shiftYear, toYearMonth, within };
+export { day, month, monthHi, monthLo, monthLoHi, seasonEnds, seasonHi, seasonLo, seasonLoHi, shiftDay, shiftMonth, shiftQuarter, shiftYear, within, year, yearMonth };
