@@ -32,6 +32,7 @@ const year = dashed => +dashed.slice(0, 4);
 const month = dashed => +dashed.slice(5, 7);
 const day = dashed => +dashed.slice(8, 10);
 const yearMonth = dashed => dashed.slice(0, 7);
+const season = dashed => year(dashed) + 'Q' + utilMonthDays.monthToSeason(month(dashed));
 const seasonEnds = year => {
   const islp = utilLeapYear.isLeap(year);
   return [3, 6, 9, 12].map(m => convert.dashify(year, m, utilMonthDays.monthDays(year, m, islp)));
@@ -77,6 +78,7 @@ exports.month = month;
 exports.monthHi = monthHi;
 exports.monthLo = monthLo;
 exports.monthLoHi = monthLoHi;
+exports.season = season;
 exports.seasonEnds = seasonEnds;
 exports.seasonHi = seasonHi;
 exports.seasonLo = seasonLo;

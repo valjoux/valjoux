@@ -1,11 +1,13 @@
-import { dashify }               from '@valjoux/convert'
-import { isLeap }                from '@valjoux/util-leap-year'
-import { monthDays, seasonLast } from '@valjoux/util-month-days'
+import { dashify }                              from '@valjoux/convert'
+import { isLeap }                               from '@valjoux/util-leap-year'
+import { monthDays, monthToSeason, seasonLast } from '@valjoux/util-month-days'
 
 export const year = dashed => +dashed.slice(0, 4)
 export const month = dashed => +dashed.slice(5, 7)
 export const day = dashed => +dashed.slice(8, 10)
 export const yearMonth = (dashed) => dashed.slice(0, 7)
+
+export const season = (dashed) => year(dashed) + 'Q' + monthToSeason(month(dashed))
 
 export const seasonEnds = (year) => {
   const islp = isLeap(year)
