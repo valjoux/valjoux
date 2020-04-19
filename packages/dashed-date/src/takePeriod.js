@@ -1,4 +1,4 @@
-import { dashify }     from '@valjoux/convert'
+import { dashify }               from '@valjoux/convert'
 import { isLeap }                from '@valjoux/util-leap-year'
 import { monthDays, seasonLast } from '@valjoux/util-month-days'
 import { month, year }           from './utils/readParts'

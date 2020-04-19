@@ -15,8 +15,10 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/util-bitwise": "^0.0.6",
-    "@valjoux/util-month-days": "^0.0.6"
+    "@valjoux/convert": "^0.0.6",
+    "@valjoux/util-leap-year": "^0.0.6",
+    "@valjoux/util-month-days": "^0.0.6",
+    "@valjoux/date-shift": "^0.0.6"
   },
   "repository": {
     "type": "git",

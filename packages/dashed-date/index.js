@@ -1,6 +1,6 @@
+export { shiftDay, shiftMonth, shiftQuarter, shiftYear }                                        from './src/shiftPeriod'
+export { seasonEnds, seasonLo, seasonHi, seasonLoHi, monthHi, monthLo, monthLoHi, toYearMonth } from './src/takePeriod'
 export {
-  shiftDay,
-  shiftMonth,
-  shiftQuarter,
-  shiftYear,
-} from './src/shiftPeriod'
+  within
+}
+                                                                                                from './src/withinPeriod'

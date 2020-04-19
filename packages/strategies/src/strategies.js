@@ -1,10 +1,10 @@
-import { Eta } from '@valjoux/eta'
-import { now } from '@valjoux/timestamp'
-import { round } from '@aryth/math'
-import { CrosTab } from '@analys/crostab'
-import { iso as isoX } from '@vect/matrix-init'
-import { fluoVector } from '@palett/fluo-vector'
+import { CrosTab }                 from '@analys/crostab'
+import { round }                   from '@aryth/math'
+import { fluoVector }              from '@palett/fluo-vector'
+import { Eta }                     from '@valjoux/eta'
+import { now }                     from '@valjoux/timestamp'
 import { mapper as mapperColumns } from '@vect/columns-mapper'
+import { iso as isoX }             from '@vect/matrix-init'
 
 /**
  * Cross by candidates and functions, under certain repeat.
@@ -21,7 +21,7 @@ export function strategies ({
   candidates,
   methods,
   showAverage = true,
-  showParams = true,
+  showParams = false,
 }) {
   const eta = new Eta(),
     fname = Object.keys(methods), functions = Object.values(methods),

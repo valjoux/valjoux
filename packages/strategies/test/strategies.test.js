@@ -1,6 +1,6 @@
-import { iterate } from '@vect/vector-mapper'
 import { decoCrostab, says } from '@spare/logger'
-import { strategies } from '../src/strategies'
+import { iterate }           from '@vect/vector-mapper'
+import { strategies }        from '../src/strategies'
 
 const { lapse, result } = strategies({
   repeat: 2E+6,
@@ -10,7 +10,7 @@ const { lapse, result } = strategies({
     exponential: [[1E+0, 1E+1, 1E+2, 1E+3, 1E+4, 1E+5], 6],
   },
   methods: {
-    bench: v => v.forEach(x => x),
+    bench: v => (v.forEach(x => x), v),
     iterate: (v, l) => {
       const o = { a: 0 }
       iterate.call(o, v, function (x) { this.a += x}, l)

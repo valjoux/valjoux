@@ -2,146 +2,87 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('@valjoux/util-bitwise');
+var convert = require('@valjoux/convert');
+var dateShift = require('@valjoux/date-shift');
+var utilLeapYear = require('@valjoux/util-leap-year');
 var utilMonthDays = require('@valjoux/util-month-days');
 
-const padDigits = (n, l) => {
-  n = '' + n;
-
-  while (n.length < l) n = '0' + n;
-
-  return n;
-};
-
-const padD4 = n => (n = +n) < 1000 ? padDigits(n, 4) : n;
-
-const padD2 = n => ((n = +n) < 10 ? '0' : '') + n;
-
-const dashify = (y, m, d, de = '-') => padD4(y) + de + padD2(m) + de + padD2(d);
-
-const ymdToDash = (ymd, de = '-') => dashify(ymd[0], ymd[1], ymd[2], de);
-
-const dashToYmd = dash => [+dash.slice(0, 4), +dash.slice(5, 7), +dash.slice(8, 10)];
-
-const min = (a, b) => a < b ? a : b;
-
-const isLeap = y => !(y % 4) && !!(y % 100) || !(y % 400);
-
-const forwardDays = (ymd, dif) => {
-  let [y, m, d] = ymd,
-      q;
-  const lp = {
-    y,
-    m,
-    cr: isLeap(y),
-    nx: isLeap(y + 1)
-  };
-  d += dif;
-
-  while (d > (q = nextYDs.call(lp))) d -= q, nextY.call(lp);
-
-  while (d > (q = nextMDs.call(lp))) d -= q, nextM.call(lp);
-
-  return ymd[0] = lp.y, ymd[1] = lp.m, ymd[2] = d, ymd; // return [lp.y, lp.m, d]
-};
-
-const nextY = function () {
-  this.y++, this.cr = this.nx, this.nx = isLeap(this.y);
-};
-
-const nextM = function () {
-  this.m >= 12 ? (this.m = 1, nextY.call(this)) : this.m++;
-};
-
-const nextYDs = function () {
-  return this.cr && this.m <= 2 || 2 < this.m && this.nx ? 366 : 365;
-};
-
-const nextMDs = function () {
-  return utilMonthDays.monthDays(null, this.m, this.cr);
-};
-
-const backwardDays = (ymd, dif) => {
-  let [y, m, d] = ymd,
-      q;
-  const lp = {
-    y,
-    m,
-    py: isLeap(y - 1),
-    cr: isLeap(y)
-  };
-  d += dif;
-
-  while (d + (q = prevYDs.call(lp)) <= 0) d += q, prevY.call(lp);
-
-  while (d <= 0) d += prevMDs.call(lp), prevM.call(lp);
-
-  return ymd[0] = lp.y, ymd[1] = lp.m, ymd[2] = d, ymd; // return [lp.y, lp.m, d]
-};
-
-const prevY = function () {
-  this.y--, this.cr = this.py, this.py = isLeap(this.y);
-};
-
-const prevM = function () {
-  this.m <= 1 ? (this.m = 12, prevY.call(this)) : this.m--;
-};
-
-const prevYDs = function () {
-  return this.py && this.m <= 2 || 2 < this.m && this.cr ? 366 : 365;
-};
-
-const prevMDs = function () {
-  return this.m <= 1 ? utilMonthDays.monthDays(null, 12, this.py) : utilMonthDays.monthDays(null, this.m - 1, this.cr);
-};
-
-const shiftDay = (ymd, days) => {
-  if (days > 0) return forwardDays(ymd, days);
-  if (days < 0) return backwardDays(ymd, days);
-  return ymd;
-};
-
-const shiftMonth = (ymd, dif) => {
-  let [y, m, d] = ymd,
-      isEnd = d >= utilMonthDays.monthDays(ymd[0], ymd[1]),
-      dy;
-  dy = ~~((m += dif) / 12), m %= 12, y += dy;
-  if (m < 1) y--, m += 12;
-  ymd[0] = y, ymd[1] = m, ymd[2] = isEnd ? utilMonthDays.monthDays(ymd[0], ymd[1]) : min(d, utilMonthDays.monthDays(ymd[0], ymd[1]));
-  return ymd;
-};
-
-const shiftYear = (ymd, dif) => {
-  let d = ymd[2],
-      isEnd = d >= utilMonthDays.monthDays(ymd[0], ymd[1]);
-  ymd[0] += dif, ymd[2] = isEnd ? utilMonthDays.monthDays(ymd[0], ymd[1]) : min(d, utilMonthDays.monthDays(ymd[0], ymd[1]));
-  return ymd;
-};
-
-const shiftQuarter = (ymd, dif) => shiftMonth(ymd, dif * 3);
-
-const shiftDay$1 = (dashed, dif) => {
+const shiftDay = (dashed, dif) => {
   var _shiftD;
 
-  return _shiftD = shiftDay(dashToYmd(dashed), dif), ymdToDash(_shiftD);
+  return _shiftD = dateShift.shiftDay(convert.dashToYmd(dashed), dif), convert.ymdToDash(_shiftD);
 };
-const shiftMonth$1 = (dashed, dif) => {
+const shiftMonth = (dashed, dif) => {
   var _shiftM;
 
-  return _shiftM = shiftMonth(dashToYmd(dashed), dif), ymdToDash(_shiftM);
+  return _shiftM = dateShift.shiftMonth(convert.dashToYmd(dashed), dif), convert.ymdToDash(_shiftM);
 };
-const shiftQuarter$1 = (dashed, dif) => {
+const shiftQuarter = (dashed, dif) => {
   var _shiftQ;
 
-  return _shiftQ = shiftQuarter(dashToYmd(dashed), dif), ymdToDash(_shiftQ);
+  return _shiftQ = dateShift.shiftQuarter(convert.dashToYmd(dashed), dif), convert.ymdToDash(_shiftQ);
 };
-const shiftYear$1 = (dashed, dif) => {
+const shiftYear = (dashed, dif) => {
   var _shiftY;
 
-  return _shiftY = shiftYear(dashToYmd(dashed), dif), ymdToDash(_shiftY);
+  return _shiftY = dateShift.shiftYear(convert.dashToYmd(dashed), dif), convert.ymdToDash(_shiftY);
 };
 
-exports.shiftDay = shiftDay$1;
-exports.shiftMonth = shiftMonth$1;
-exports.shiftQuarter = shiftQuarter$1;
-exports.shiftYear = shiftYear$1;
+const year = dashed => +dashed.slice(0, 4);
+const month = dashed => +dashed.slice(5, 7);
+ // export const ymd = dashed => [+dashed.slice(0, 4), +dashed.slice(5, 7), +dashed.slice(8, 10)]
+
+const toYearMonth = dashed => dashed.slice(0, 7);
+const seasonEnds = year => {
+  const islp = utilLeapYear.isLeap(year);
+  return [3, 6, 9, 12].map(m => convert.dashify(year, m, utilMonthDays.monthDays(year, m, islp)));
+};
+const seasonLo = dashed => {
+  const y = year(dashed),
+        m = month(dashed),
+        hi = utilMonthDays.seasonLast(m);
+  return convert.dashify(y, hi - 2, 1);
+};
+const seasonHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed),
+        hi = utilMonthDays.seasonLast(m);
+  return convert.dashify(y, hi, utilMonthDays.monthDays(y, hi));
+};
+const seasonLoHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed),
+        hi = utilMonthDays.seasonLast(m);
+  return [convert.dashify(y, hi - 2, 1), convert.dashify(y, hi, utilMonthDays.monthDays(y, hi))];
+};
+const monthLo = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return convert.dashify(y, m, utilMonthDays.monthDays(y, 1));
+};
+const monthHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return convert.dashify(y, m, utilMonthDays.monthDays(y, m));
+};
+const monthLoHi = dashed => {
+  const y = year(dashed),
+        m = month(dashed);
+  return [convert.dashify(y, m, 1), convert.dashify(y, m, utilMonthDays.monthDays(y, m))];
+};
+
+const within = (dashed, lo, hi) => lo.localeCompare(dashed) <= 0 && dashed.localeCompare(hi) <= 0;
+
+exports.monthHi = monthHi;
+exports.monthLo = monthLo;
+exports.monthLoHi = monthLoHi;
+exports.seasonEnds = seasonEnds;
+exports.seasonHi = seasonHi;
+exports.seasonLo = seasonLo;
+exports.seasonLoHi = seasonLoHi;
+exports.shiftDay = shiftDay;
+exports.shiftMonth = shiftMonth;
+exports.shiftQuarter = shiftQuarter;
+exports.shiftYear = shiftYear;
+exports.toYearMonth = toYearMonth;
+exports.within = within;
