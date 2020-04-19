@@ -1,4 +1,4 @@
-import { isLeap } from '@valjoux/util-leap-year'
+import { isLeap }    from '@valjoux/util-leap-year'
 import { monthDays } from '@valjoux/util-month-days'
 
 export const backwardDays = (ymd, dif) => {
@@ -14,4 +14,4 @@ export const backwardDays = (ymd, dif) => {
 const prevY = function () { this.y--, this.cr = this.py, this.py = isLeap(this.y) }
 const prevM = function () { this.m <= 1 ? (this.m = 12, prevY.call(this)) : this.m-- }
 const prevYDs = function () { return this.py && this.m <= 2 || 2 < this.m && this.cr ? 366 : 365 }
-const prevMDs = function () { return this.m <= 1 ? monthDays(12, this.py) : monthDays(this.m - 1, this.cr)}
+const prevMDs = function () { return this.m <= 1 ? monthDays(null, 12, this.py) : monthDays(null, this.m - 1, this.cr)}

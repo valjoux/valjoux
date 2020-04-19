@@ -16,3 +16,5 @@ export {
   intToYmd,
   // ymdToYmd,
 } from './src/index'
+
+export { dashify } from './src/utils/dashify'

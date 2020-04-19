@@ -1,4 +1,4 @@
-import { Chrono } from 'elprimero'
+import {strategies} from '@valjoux/strategies'
 import { decoCrostab, logger, says, xr } from '@spare/logger'
 
 // if (year is not divisible by 4) then (it is a common year)
@@ -8,9 +8,9 @@ import { decoCrostab, logger, says, xr } from '@spare/logger'
 
 class LeapYearTest {
   static testLeapYear () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+7,
-      paramsList: {
+      candidates: {
         y1500: [1500],
         y1600: [1600],
         y1700: [1700],
@@ -21,7 +21,7 @@ class LeapYearTest {
         y2019: [2019],
         y2100: [2100],
       },
-      funcList: {
+      methods: {
         stable: y => {
           if (!(y % 4)) {
             if (!(y % 100)) return !(y % 400)

@@ -1,45 +1,57 @@
-import { Chrono } from 'elprimero'
-import {
-  dashToDash, dashToDate, dashToInt, dashToYmd,
-  dateToDash, dateToDate, dateToInt, dateToYmd,
-  intToDash, intToDate, intToInt, intToYmd,
-  ymdToDash, ymdToDate, ymdToInt, ymdToYmd
-} from '../src'
 import { decoCrostab, says } from '@spare/logger'
+import { strategies }        from '@valjoux/strategies'
+import {
+  dashToDash,
+  dashToDate,
+  dashToInt,
+  dashToYmd,
+  dateToDash,
+  dateToDate,
+  dateToInt,
+  dateToYmd,
+  intToDash,
+  intToDate,
+  intToInt,
+  intToYmd,
+  ymdToDash,
+  ymdToDate,
+  ymdToInt,
+  ymdToYmd
+}                            from '../src'
 
 export class ConvertStrategies {
   static testDashToSome () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+6,
-      paramsList: { simple: [new Date() |> dateToDash], },
-      funcList: { bench: dash => dash.split('-'), dashToDash, dashToDate, dashToInt, dashToYmd, }
+      candidates: { simple: [new Date() |> dateToDash], },
+      methods: { bench: dash => dash.split('-'), dashToDash, dashToDate, dashToInt, dashToYmd, }
     })
     lapse |> decoCrostab |> says.lapse
     result |> decoCrostab |> says.result
   }
   static testDateToSome () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+6,
-      paramsList: { simple: [new Date()], },
-      funcList: { bench: date => date.toLocaleString(), dateToDash, dateToDate, dateToInt, dateToYmd, }
+      candidates: { simple: [new Date()], },
+      methods: { bench: date => date.toLocaleString(), dateToDash, dateToDate, dateToInt, dateToYmd, }
     })
     lapse |> decoCrostab |> says.lapse
     result |> decoCrostab |> says.result
   }
   static testIntToSome () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+6,
-      paramsList: { simple: [new Date() |> dateToInt], },
-      funcList: { bench: int => int >> 9 & 0xffff, intToDash, intToDate, intToInt, intToYmd, }
+      candidates: { simple: [new Date() |> dateToInt], },
+      methods: { bench: int => int >> 9 & 0xffff, intToDash, intToDate, intToInt, intToYmd, }
     })
     lapse |> decoCrostab |> says.lapse
     result |> decoCrostab |> says.result
   }
   static testYmdToSome () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+6,
-      paramsList: { simple: [new Date() |> dateToYmd], },
-      funcList: { bench: ymd => ymd.map(x => x), ymdToDash, ymdToDate, ymdToInt, ymdToYmd }
+      candidates: { simple: [new Date() |> dateToYmd], },
+      methods: { bench: ymd => ymd.map(x => x), ymdToDash, ymdToDate, ymdToInt, ymdToYmd }
 
     })
     lapse |> decoCrostab |> says.lapse

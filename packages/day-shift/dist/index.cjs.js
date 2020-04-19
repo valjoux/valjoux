@@ -36,7 +36,7 @@ const nextYDs = function () {
 };
 
 const nextMDs = function () {
-  return utilMonthDays.monthDays(this.m, this.cr);
+  return utilMonthDays.monthDays(null, this.m, this.cr);
 };
 
 const backwardDays = (ymd, dif) => {
@@ -70,7 +70,7 @@ const prevYDs = function () {
 };
 
 const prevMDs = function () {
-  return this.m <= 1 ? utilMonthDays.monthDays(12, this.py) : utilMonthDays.monthDays(this.m - 1, this.cr);
+  return this.m <= 1 ? utilMonthDays.monthDays(null, 12, this.py) : utilMonthDays.monthDays(null, this.m - 1, this.cr);
 };
 
 exports.backwardDays = backwardDays;

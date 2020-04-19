@@ -1,7 +1,7 @@
 import { CrosTab } from 'crostab'
 import { DecoCrostab, logger } from '@spare/logger'
 import { JUNGLE, METRO } from '@palett/presets'
-import { COLUMNWISE } from '@vect/matrix'
+import { COLUMNWISE } from '@vect/enum-matrix-directions'
 import {
   dashToDash, dashToDate, dashToInt, dashToYmd,
   dateToDash, dateToDate, dateToInt, dateToYmd,

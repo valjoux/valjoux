@@ -7,5 +7,5 @@ import { ymdToInt } from '@valjoux/convert'
  * @param {[number,number,number]} hi
  * @returns {boolean|boolean}
  */
-export const belongTo = (ymd, lo, hi) =>
+export const within = (ymd, lo, hi) =>
   ymdToInt(lo) <= (ymd = ymdToInt(ymd)) && ymd <= ymdToInt(hi)

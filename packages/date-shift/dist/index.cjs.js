@@ -3,9 +3,10 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var convert = require('@valjoux/convert');
-var utilYmd = require('@valjoux/util-ymd');
-var dayShift = require('@valjoux/day-shift');
 var comparer = require('@aryth/comparer');
+var dayShift = require('@valjoux/day-shift');
+var utilMonthDays = require('@valjoux/util-month-days');
+var vectorMerge = require('@vect/vector-merge');
 
 /**
  *
@@ -15,7 +16,7 @@ var comparer = require('@aryth/comparer');
  * @returns {boolean|boolean}
  */
 
-const belongTo = (ymd, lo, hi) => convert.ymdToInt(lo) <= (ymd = convert.ymdToInt(ymd)) && ymd <= convert.ymdToInt(hi);
+const within = (ymd, lo, hi) => convert.ymdToInt(lo) <= (ymd = convert.ymdToInt(ymd)) && ymd <= convert.ymdToInt(hi);
 
 const shiftDay = (ymd, days) => {
   if (days > 0) return dayShift.forwardDays(ymd, days);
@@ -24,35 +25,51 @@ const shiftDay = (ymd, days) => {
 };
 const shiftMonth = (ymd, dif) => {
   let [y, m, d] = ymd,
-      isEnd = d >= utilYmd.monthDays(ymd),
+      isEnd = d >= utilMonthDays.monthDays(ymd[0], ymd[1]),
       dy;
   dy = ~~((m += dif) / 12), m %= 12, y += dy;
   if (m < 1) y--, m += 12;
-  ymd[0] = y, ymd[1] = m, ymd[2] = isEnd ? utilYmd.monthDays(ymd) : comparer.min(d, utilYmd.monthDays(ymd));
+  ymd[0] = y, ymd[1] = m, ymd[2] = isEnd ? utilMonthDays.monthDays(y, m) : comparer.min(d, utilMonthDays.monthDays(y, m));
   return ymd;
 };
 const shiftYear = (ymd, dif) => {
-  let d = ymd[2],
-      isEnd = d >= utilYmd.monthDays(ymd);
-  ymd[0] += dif, ymd[2] = isEnd ? utilYmd.monthDays(ymd) : comparer.min(d, utilYmd.monthDays(ymd));
+  let [y, m, d] = ymd,
+      isEnd = d >= utilMonthDays.monthDays(y, m);
+  ymd[0] += dif, ymd[2] = isEnd ? utilMonthDays.monthDays(y, m) : comparer.min(d, utilMonthDays.monthDays(y, m));
   return ymd;
 };
 const shiftQuarter = (ymd, dif) => shiftMonth(ymd, dif * 3);
 
-const seasonLoHi = ymd => {
-  const [y, m] = ymd;
-  let hi = ~~((m - 1) / 3 + 1) * 3;
-  return [[y, hi - 2, 1], [y, hi, utilYmd.monthDays([y, hi])]];
+const seasonLo = ymd => {
+  const [y, m] = ymd,
+        hi = utilMonthDays.seasonLast(m);
+  return [y, hi - 2, 1];
 };
+const seasonHi = ymd => {
+  const [y, m] = ymd,
+        hi = utilMonthDays.seasonLast(m);
+  return [y, hi, utilMonthDays.monthDays(y, hi)];
+};
+const seasonLoHi = ymd => {
+  const [y, m] = ymd,
+        hi = utilMonthDays.seasonLast(m);
+  return [[y, hi - 2, 1], [y, hi, utilMonthDays.monthDays(y, hi)]];
+};
+const monthLo = ymd => vectorMerge.acquire(ymd.slice(0, 2), 1);
+const monthHi = ymd => vectorMerge.acquire(ymd.slice(0, 2), utilMonthDays.monthDays.apply(null, ymd));
 const monthLoHi = ymd => {
   const [y, m] = ymd;
-  return [[y, m, 1], [y, m, utilYmd.monthDays(ymd)]];
+  return [[y, m, 1], [y, m, utilMonthDays.monthDays(y, m)]];
 };
 
-exports.belongTo = belongTo;
+exports.monthHi = monthHi;
+exports.monthLo = monthLo;
 exports.monthLoHi = monthLoHi;
+exports.seasonHi = seasonHi;
+exports.seasonLo = seasonLo;
 exports.seasonLoHi = seasonLoHi;
 exports.shiftDay = shiftDay;
 exports.shiftMonth = shiftMonth;
 exports.shiftQuarter = shiftQuarter;
 exports.shiftYear = shiftYear;
+exports.within = within;

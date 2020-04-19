@@ -1,6 +1,6 @@
-import { isLeap } from '@valjoux/util-leap-year'
-import { monthDays } from '@valjoux/util-month-days'
 import { intToYmd, ymdToInt } from '@valjoux/convert'
+import { isLeap }             from '@valjoux/util-leap-year'
+import { monthDays }          from '@valjoux/util-month-days'
 
 export const forwardDays = (int, dif) => {
   let [y, m, d] = intToYmd(int), q
@@ -14,4 +14,4 @@ export const forwardDays = (int, dif) => {
 const nextY = function () { this.y++, this.cr = this.nx, this.nx = isLeap(this.y) }
 const nextM = function () { this.m >= 12 ? (this.m = 1, nextY.call(this)) : this.m++ }
 const nextYDs = function () { return this.cr && this.m <= 2 || 2 < this.m && this.nx ? 366 : 365 }
-const nextMDs = function () { return monthDays(this.m, this.cr) }
+const nextMDs = function () { return monthDays(null, this.m, this.cr) }

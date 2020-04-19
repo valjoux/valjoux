@@ -1,5 +1,5 @@
-import { Xr, says, deco } from '@spare/logger'
-import { shiftMonth } from '../src/shifters'
+import { deco, says, Xr } from '@spare/logger'
+import { shiftMonth }     from '../src/shiftPeriod'
 
 const YMD = 'ymd', SHIFT = 'shift', RESULT = 'result'
 

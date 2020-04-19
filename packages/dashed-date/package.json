@@ -1,5 +1,5 @@
 {
-  "name": "@valjoux/util-ymd",
+  "name": "@valjoux/dashed-date",
   "version": "0.0.6",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
@@ -15,18 +15,17 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/util-month-days": "^0.0.6",
-    "@valjoux/util-leap-year": "^0.0.6"
+    "@valjoux/util-bitwise": "^0.0.6",
+    "@valjoux/util-month-days": "^0.0.6"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hoyeungw/valjoux.git"
   },
   "keywords": [
-    "array",
-    "vector",
-    "matrix",
-    "object"
+    "date",
+    "dashed-date",
+    "yyyy-mm-dd"
   ],
   "author": "Hoyeung Wong",
   "license": "MIT",

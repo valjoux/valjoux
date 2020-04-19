@@ -1,9 +1,17 @@
+const isLeap = y => !(y % 4) && !!(y % 100) || !(y % 400);
+
+const bigMonth = m => m % 2 ^ m >= 8;
+
 /**
  *
- * @param {number} month
- * @param {boolean} isLeap
+ * @param {*} [y]
+ * @param {*} m
+ * @param {boolean} [islp]
  * @returns {*}
  */
-const monthDays = (month, isLeap) => month === 0x2 ? 28 + isLeap : 30 + month % 0x2 ^ month >= 0x8;
 
-export { monthDays };
+const monthDays = (y, m, islp) => m === 0x2 ? 28 + (islp !== null && islp !== void 0 ? islp : isLeap(y)) : 30 + bigMonth(m);
+
+const seasonLast = m => ~~((m - 1) / 3 + 1) * 3;
+
+export { bigMonth, monthDays, seasonLast };

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "pub": "npm publish",
-    "test": "node -r @babel/register test/test.index.js"
+    "test": ""
   },
   "dependencies": {
     "@valjoux/util-bitwise": "^0.0.6"

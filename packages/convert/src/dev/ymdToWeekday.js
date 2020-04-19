@@ -1,5 +1,5 @@
-import { dateToYmd } from './index'
-import { logger } from '@spare/logger'
+import { dateToYmd } from '../index'
+import { logger }    from '@spare/logger'
 import { shiftYear } from '@valjoux/date-shift'
 
 export const ymdToWeekday = ([y, m, d]) => {

@@ -1,6 +1,7 @@
-import { isLeap } from '@valjoux/util-leap-year'
+import { isLeap }    from '@valjoux/util-leap-year'
+import { monthDays } from '@valjoux/util-month-days'
 
-export const monthDays = ({ y, m }) => m === 2 ? 28 + isLeap(y) : 30 + m % 2 ^ m >= 8
+export const md = ({ y, m }) => m === 2 ? 28 + isLeap(y) : 30 + m % 2 ^ m >= 8
 export const prevMonth = (dt) => (dt.m <= 1 ? (dt.y--, dt.m = 12) : dt.m--, dt)
 export const nextMonth = (dt) => (dt.m >= 12 ? (dt.y++, dt.m = 1) : dt.m++, dt)
 
@@ -9,13 +10,13 @@ export class YMD {
     this.y = y, this.m = m, this.d = d
   }
 
-  static of (y, m, d) { return new YMD(y, m, d) }
+  static of (y, m, d) { return new YMD(null, y, m, d) }
 
   nextYearDays () { return isLeap(this.y) && this.m <= 2 || 2 < this.m && isLeap(this.y + 1) ? 366 : 365 }
   prevYearDays () { return isLeap(this.y - 1) && this.m <= 2 || 2 < this.m && isLeap(this.y) ? 366 : 365 }
 
-  nextMonthDays () { return monthDays(this) }
-  prevMonthDays () { return monthDays(this.prevMonth(false)) }
+  nextMonthDays () { return monthDays(null, this.nextMonth(false)) }
+  prevMonthDays () { return monthDays(null, this.prevMonth(false)) }
 
   prevMonth (mutate = true) {return mutate ? prevMonth(this) : prevMonth({ y: this.y, m: this.m })}
   nextMonth (mutate = true) {return mutate ? nextMonth(this) : nextMonth({ y: this.y, m: this.m })}

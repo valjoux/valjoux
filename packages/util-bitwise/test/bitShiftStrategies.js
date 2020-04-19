@@ -1,4 +1,4 @@
-import { Chrono } from 'elprimero'
+import {strategies} from '@valjoux/strategies'
 import { decoCrostab, says } from '@spare/logger'
 import { dateToInt, dateToYmd, ymdToInt } from '@valjoux/convert'
 import {
@@ -8,13 +8,13 @@ import {
 
 export class BitShiftStrategies {
   static testReader () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 1E+7,
-      paramsList: {
+      candidates: {
         simple: [new Date() |> dateToInt],
         another: [[2077, 12, 31] |> ymdToInt]
       },
-      funcList: {
+      methods: {
         bench: int => int >> 9 & 0xffff,
         readYear,
         readMonth,
@@ -26,10 +26,10 @@ export class BitShiftStrategies {
     result |> decoCrostab |> says.result
   }
   static testBitShift () {
-    const { lapse, result } = Chrono.strategies({
+    const { lapse, result } = strategies({
       repeat: 4E+6,
-      paramsList: { simple: [new Date() |> dateToYmd], another: [[2077, 12, 31]] },
-      funcList: {
+      candidates: { simple: [new Date() |> dateToYmd], another: [[2077, 12, 31]] },
+      methods: {
         bench: ymd => ymd.map(x => x),
         bitYear: ([y]) => bitYear(y),
         bitMonth: ([, m]) => bitMonth(m),
