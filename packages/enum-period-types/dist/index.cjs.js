@@ -2,7 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const DAILY = 'd',
+const INTRADAY = 'i',
+      DAILY = 'd',
       WEEKLY = 'w',
       MONTHLY = 'm',
       QUARTERLY = 'q',
@@ -10,6 +11,7 @@ const DAILY = 'd',
       PENTALY = 'p';
 
 exports.DAILY = DAILY;
+exports.INTRADAY = INTRADAY;
 exports.MONTHLY = MONTHLY;
 exports.PENTALY = PENTALY;
 exports.QUARTERLY = QUARTERLY;

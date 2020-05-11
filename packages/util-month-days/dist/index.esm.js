@@ -1,4 +1,4 @@
-const isLeap = y => !(y % 4) && !!(y % 100) || !(y % 400);
+import { isLeap } from '@valjoux/util-leap-year';
 
 const bigMonth = m => m % 2 ^ m >= 8;
 

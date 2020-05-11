@@ -1,4 +1,5 @@
 export {
+  INTRADAY,
   DAILY,
   WEEKLY,
   MONTHLY,
