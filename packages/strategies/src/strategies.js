@@ -27,7 +27,7 @@ export function strategies ({
     fname = Object.keys(methods), functions = Object.values(methods),
     ents = Object.entries(candidates),
     h = ents.length, w = fname.length,
-    tmx = isoX(h, w, 0), vmx = isoX(h, w, null)
+    tmx = isoX(h, w, 0), vmx = isoX(h, w, undefined)
   eta.ini()
   for (let i = 0, cname, params; i < h; i++) {
     [cname, params] = ents[i], progressLogger(i, cname, fname, repeat)

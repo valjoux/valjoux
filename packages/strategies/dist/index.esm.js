@@ -31,7 +31,7 @@ function strategies({
         h = ents.length,
         w = fname.length,
         tmx = iso(h, w, 0),
-        vmx = iso(h, w, null);
+        vmx = iso(h, w, undefined);
   eta.ini();
 
   for (let i = 0, cname, params; i < h; i++) {

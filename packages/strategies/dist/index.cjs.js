@@ -35,7 +35,7 @@ function strategies({
         h = ents.length,
         w = fname.length,
         tmx = matrixInit.iso(h, w, 0),
-        vmx = matrixInit.iso(h, w, null);
+        vmx = matrixInit.iso(h, w, undefined);
   eta$1.ini();
 
   for (let i = 0, cname, params; i < h; i++) {
