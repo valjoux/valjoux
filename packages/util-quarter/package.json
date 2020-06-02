@@ -1,7 +1,7 @@
 {
-  "name": "@valjoux/strategies",
+  "name": "@valjoux/util-quarter",
   "version": "0.1.4",
-  "description": "date & time util toolset",
+  "description": "util on quarter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -12,17 +12,11 @@
   },
   "scripts": {
     "pub": "npm publish",
-    "test": "node -r @babel/register test/strategies.test.js"
+    "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@analys/crostab": "^0.3.4",
-    "@aryth/math": "^0.2.6",
-    "@palett/fluo-vector": "^0.2.15",
-    "@palett/ros": "^0.2.15",
-    "@valjoux/eta": "^0.1.4",
-    "@valjoux/timestamp": "^0.1.4",
-    "@vect/columns-mapper": "^0.2.4",
-    "@vect/matrix-init": "^0.2.4"
+    "@valjoux/util-leap-year": "^0.1.4",
+    "@valjoux/util-month-days": "^0.1.4"
   },
   "repository": {
     "type": "git",
