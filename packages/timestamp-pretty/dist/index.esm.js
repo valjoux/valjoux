@@ -50,25 +50,25 @@ class Timestamp {
   /** @param {Date} dt */
 
 
-  date(dt) {
+  date(dt = new Date()) {
     return this.decoYMD(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
   }
   /** @param {Date} dt */
 
 
-  roughTime(dt) {
+  roughTime(dt = new Date()) {
     return this.decoHMS(dt.getHours(), dt.getMinutes(), dt.getSeconds());
   }
   /** @param {Date} dt */
 
 
-  time(dt) {
+  time(dt = new Date()) {
     return this.roughTime(dt) + '.' + this.decoMilli(dt.getMilliseconds());
   }
   /** @param {Date} dt */
 
 
-  dateTime(dt) {
+  dateTime(dt = new Date()) {
     return this.date(dt) + QT + this.roughTime(dt);
   }
 

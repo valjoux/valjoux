@@ -27,13 +27,13 @@ export class Timestamp {
   }
 
   /** @param {Date} dt */
-  date(dt) { return this.decoYMD(dt.getFullYear(), dt.getMonth() + 1, dt.getDate()) }
+  date(dt = new Date()) { return this.decoYMD(dt.getFullYear(), dt.getMonth() + 1, dt.getDate()) }
   /** @param {Date} dt */
-  roughTime(dt) { return this.decoHMS(dt.getHours(), dt.getMinutes(), dt.getSeconds()) }
+  roughTime(dt = new Date()) { return this.decoHMS(dt.getHours(), dt.getMinutes(), dt.getSeconds()) }
   /** @param {Date} dt */
-  time(dt) { return this.roughTime(dt) + '.' + this.decoMilli(dt.getMilliseconds()) }
+  time(dt = new Date()) { return this.roughTime(dt) + '.' + this.decoMilli(dt.getMilliseconds()) }
   /** @param {Date} dt */
-  dateTime(dt) { return this.date(dt) + QT + this.roughTime(dt) }
+  dateTime(dt = new Date()) { return this.date(dt) + QT + this.roughTime(dt) }
 
   decoYMD(year, month, day) {
     return this.dy
