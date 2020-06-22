@@ -4,7 +4,7 @@ import { formatTime }     from '@valjoux/format-time'
 import { milli }          from '../utils/padMilli'
 
 /** @return  {string} - YYYY-MM-DD */
-export const date = (dash = '-') => dateToDash(new Date(), dash)
+export const date = (dt = new Date(), dash = '-') => dateToDash(dt, dash)
 
 /** @returns {string} - hh:mm:ss */
 export const roughTime = (date = new Date()) => formatTime(date)

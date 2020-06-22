@@ -1,37 +1,109 @@
-import { dateToDash } from '@valjoux/convert';
-import { formatDateTime } from '@valjoux/format-date-time';
-import { formatTime } from '@valjoux/format-time';
+import { Colorant } from '@palett/projector';
+import { QT, DASH, RT } from '@spare/enum-chars';
+import { METRO, SUBTLE } from '@palett/presets';
+
+const padDeci = x => x >= 10 ? '' + x : '0' + x;
+
+const padKilo = x => x >= 1000 ? '' + x : ('' + x).padStart(4, '0');
 
 const padMilli = ms => (ms = '' + ms).length > 2 ? ms : ('00' + ms).slice(-3);
-const milli = date => padMilli(date.getMilliseconds());
 
-/** @returns {number} - YYYY */
+class Timestamp {
+  constructor(datePreset, timePreset, milliPreset) {
+    if (datePreset) {
+      this.dy = Colorant({
+        min: 1990,
+        max: 2030
+      }, datePreset);
+      this.dm = Colorant({
+        min: 1,
+        max: 12
+      }, datePreset);
+      this.dd = Colorant({
+        min: 1,
+        max: 31
+      }, datePreset);
+    }
 
-const year = (date = new Date()) => date.getFullYear();
-/** @return  {string} - YYYY-MM-DD */
+    if (timePreset) {
+      this.dh = Colorant({
+        min: 0,
+        max: 23
+      }, timePreset);
+      this.ds = Colorant({
+        min: 0,
+        max: 59
+      }, timePreset);
+    }
 
-const today = (dash = '-') => dateToDash(new Date(), dash);
-/** @returns {string} - hh:mm:ss */
+    if (milliPreset) {
+      this.dt = Colorant({
+        min: 0,
+        max: 999
+      }, milliPreset);
+    }
+  }
 
-const roughly = (date = new Date()) => formatTime(date);
-/** @return {string} - hh:mm:ss */
+  static build(datePreset = METRO, timePreset = SUBTLE, milliPreset = SUBTLE) {
+    return new Timestamp(datePreset, timePreset, milliPreset);
+  }
+  /** @param {Date} dt */
 
-const roughlyNow = () => formatTime(new Date());
-/** @returns {string} - hh:mm:ss.mmm */
 
-const time = (date = new Date()) => formatTime(date) + '.' + milli(date);
-/** @return {string} - hh:mm:ss.mmm */
+  date(dt) {
+    return this.decoYMD(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
+  }
+  /** @param {Date} dt */
 
-const now = () => {
-  var _Date;
 
-  return _Date = new Date(), time(_Date);
-};
-/** @return  {string} - mm/dd/yy, hh:mm:ss */
+  roughTime(dt) {
+    return this.decoHMS(dt.getHours(), dt.getMinutes(), dt.getSeconds());
+  }
+  /** @param {Date} dt */
 
-const dateTime = (date = new Date()) => formatDateTime(date);
-/** @return  {string} - mm/dd/yy, hh:mm:ss */
 
-const present = () => formatDateTime(new Date());
+  time(dt) {
+    return this.roughTime(dt) + '.' + this.decoMilli(dt.getMilliseconds());
+  }
+  /** @param {Date} dt */
 
-export { dateTime, now, present, roughly, roughlyNow, time, today, year };
+
+  dateTime(dt) {
+    return this.date(dt) + QT + this.roughTime(dt);
+  }
+
+  decoYMD(year, month, day) {
+    var _padKilo, _padDeci, _padDeci2;
+
+    return this.dy ? (_padKilo = padKilo(year), this.dy(year)(_padKilo)) + DASH + (_padDeci = padDeci(month), this.dm(month)(_padDeci)) + DASH + (_padDeci2 = padDeci(day), this.dd(day)(_padDeci2)) : padKilo(year) + DASH + padDeci(month) + DASH + padDeci(day);
+  }
+
+  decoHMS(hour, minute, second) {
+    var _padDeci3, _padDeci4, _padDeci5;
+
+    return this.dh ? (_padDeci3 = padDeci(hour), this.dh(hour)(_padDeci3)) + RT + (_padDeci4 = padDeci(minute), this.ds(minute)(_padDeci4)) + RT + (_padDeci5 = padDeci(second), this.ds(second)(_padDeci5)) : padDeci(hour) + RT + padDeci(minute) + RT + padDeci(second);
+  }
+
+  decoMilli(milli) {
+    var _padMilli;
+
+    return this.dt ? (_padMilli = padMilli(milli), this.dt(milli)(_padMilli)) : padMilli(milli);
+  }
+
+}
+
+const timestamp = Timestamp.build();
+/** @type {Function} */
+
+const date = timestamp.date.bind(timestamp);
+/** @type {Function} */
+
+const time = timestamp.time.bind(timestamp);
+/** @type {Function} */
+
+const roughTime = timestamp.roughTime.bind(timestamp);
+/** @type {Function} */
+
+const dateTime = timestamp.dateTime.bind(timestamp);
+
+export { Timestamp, date, dateTime, roughTime, time };

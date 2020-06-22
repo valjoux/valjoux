@@ -1,1 +1,4 @@
-export { year, today, roughly, roughlyNow, time, now, dateTime, present } from './src/init'
+export {
+  year, date, roughTime, time, dateTime,
+  today, roughly, roughlyNow, now, present
+} from './src/methods'
