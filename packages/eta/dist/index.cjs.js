@@ -2,28 +2,45 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var formatTime = require('@valjoux/format-time');
+var presets = require('@palett/presets');
+var timestamp = require('@valjoux/timestamp');
+var timestampPretty = require('@valjoux/timestamp-pretty');
 
 class Eta {
-  constructor() {
+  constructor({
+    formatter
+  } = {}) {
     this.c = new Date();
     this.p = 0;
+    this.ft = formatter !== null && formatter !== void 0 ? formatter : timestamp.time;
   }
 
   tick() {
-    return this.p = this.c, this.c = new Date(), this.c - this.p;
+    return this.p = this.c, this.c = new Date();
   }
 
   ini(msg = '') {
-    return `[${formatTime.formatTime(this.c)}] [Ini 0ms] ${msg}`;
+    return this.tick(), `${this.ft(this.c)} [ini 0ms] ${msg}`;
   }
 
   lap(msg = '') {
-    return `[${formatTime.formatTime(this.c)}] [Lap ${this.tick()}ms] ${msg}`;
+    return this.tick(), `${this.ft(this.c)} [lap ${this.c - this.p}ms] ${msg}`;
   }
 
   end(msg = '') {
-    return `[${formatTime.formatTime(this.c)}] [End ${this.tick()}ms] ${msg}`;
+    return this.tick(), `${this.ft(this.c)} [end ${this.c - this.p}ms] ${msg}`;
+  }
+
+  static build() {
+    return new Eta();
+  }
+
+  static buildPretty(timePreset = presets.SUBTLE, milliPreset = presets.SUBTLE) {
+    const timestamp = timestampPretty.Timestamp.build(undefined, timePreset, milliPreset);
+    const formatter = timestamp.time.bind(timestamp);
+    return new Eta({
+      formatter
+    });
   }
 
 }

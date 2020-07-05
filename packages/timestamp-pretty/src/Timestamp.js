@@ -37,18 +37,30 @@ export class Timestamp {
 
   decoYMD(year, month, day) {
     return this.dy
-      ? ((padKilo(year) |> this.dy(year)) + DASH +
+      ? (
+        (padKilo(year) |> this.dy(year)) + DASH +
         (padDeci(month) |> this.dm(month)) + DASH +
-        (padDeci(day) |> this.dd(day)))
-      : (padKilo(year) + DASH + padDeci(month) + DASH + padDeci(day))
+        (padDeci(day) |> this.dd(day))
+      )
+      : (
+        padKilo(year) + DASH +
+        padDeci(month) + DASH +
+        padDeci(day)
+      )
   }
 
   decoHMS(hour, minute, second) {
     return this.dh
-      ? ((padDeci(hour) |> this.dh(hour)) + RT +
+      ? (
+        (padDeci(hour) |> this.dh(hour)) + RT +
         (padDeci(minute) |> this.ds(minute)) + RT +
-        (padDeci(second) |> this.ds(second)))
-      : (padDeci(hour) + RT + padDeci(minute) + RT + padDeci(second))
+        (padDeci(second) |> this.ds(second))
+      )
+      : (
+        padDeci(hour) + RT +
+        padDeci(minute) + RT +
+        padDeci(second)
+      )
   }
 
   decoMilli(milli) {
