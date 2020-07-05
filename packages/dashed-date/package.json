@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/dashed-date",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -15,10 +15,10 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/convert": "^0.1.8",
-    "@valjoux/date-shift": "^0.1.8",
-    "@valjoux/util-leap-year": "^0.1.8",
-    "@valjoux/util-month-days": "^0.1.8"
+    "@valjoux/convert": "^0.1.9",
+    "@valjoux/date-shift": "^0.1.9",
+    "@valjoux/util-leap-year": "^0.1.9",
+    "@valjoux/util-month-days": "^0.1.9"
   },
   "repository": {
     "type": "git",
