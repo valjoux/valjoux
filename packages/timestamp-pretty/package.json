@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/timestamp-pretty",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "variant format of date / times",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -18,9 +18,9 @@
     "@palett/presets": "^0.4.0",
     "@palett/projector": "^0.4.0",
     "@spare/enum-chars": "^0.8.0",
-    "@valjoux/convert": "^0.1.9",
-    "@valjoux/format-date-time": "^0.1.9",
-    "@valjoux/format-time": "^0.1.9"
+    "@valjoux/convert": "^0.1.10",
+    "@valjoux/format-date-time": "^0.1.10",
+    "@valjoux/format-time": "^0.1.10"
   },
   "repository": {
     "type": "git",
