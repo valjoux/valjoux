@@ -6,14 +6,15 @@ export class Eta {
   constructor({ formatter } = {}) {
     this.c = new Date()
     this.p = 0
+    this.d = 0
     this.ft = formatter ?? time
   }
 
-  tick() { return this.p = this.c, this.c = new Date() }
+  tick() { return this.p = this.c, this.c = new Date(), this.d = this.c - this.p }
 
   ini(msg = '') { return this.tick(), `${ this.ft(this.c) } [ini 0ms] ${ msg }` }
-  lap(msg = '') { return this.tick(), `${ this.ft(this.c) } [lap ${ this.c - this.p }ms] ${ msg }` }
-  end(msg = '') { return this.tick(), `${ this.ft(this.c) } [end ${ this.c - this.p }ms] ${ msg }` }
+  lap(msg = '') { return this.tick(), `${ this.ft(this.c) } [lap ${ this.d }ms] ${ msg }` }
+  end(msg = '') { return this.tick(), `${ this.ft(this.c) } [end ${ this.d }ms] ${ msg }` }
 
   static build() { return new Eta() }
 

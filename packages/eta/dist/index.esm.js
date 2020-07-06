@@ -8,11 +8,12 @@ class Eta {
   } = {}) {
     this.c = new Date();
     this.p = 0;
+    this.d = 0;
     this.ft = formatter !== null && formatter !== void 0 ? formatter : time;
   }
 
   tick() {
-    return this.p = this.c, this.c = new Date();
+    return this.p = this.c, this.c = new Date(), this.d = this.c - this.p;
   }
 
   ini(msg = '') {
@@ -20,11 +21,11 @@ class Eta {
   }
 
   lap(msg = '') {
-    return this.tick(), `${this.ft(this.c)} [lap ${this.c - this.p}ms] ${msg}`;
+    return this.tick(), `${this.ft(this.c)} [lap ${this.d}ms] ${msg}`;
   }
 
   end(msg = '') {
-    return this.tick(), `${this.ft(this.c)} [end ${this.c - this.p}ms] ${msg}`;
+    return this.tick(), `${this.ft(this.c)} [end ${this.d}ms] ${msg}`;
   }
 
   static build() {
