@@ -1,8 +1,10 @@
 import { CrosTab }                 from '@analys/crostab'
 import { round }                   from '@aryth/math'
 import { fluoVector }              from '@palett/fluo-vector'
+import { ros }                     from '@palett/says'
+import { CO }                      from '@spare/enum-chars'
 import { Eta }                     from '@valjoux/eta'
-import { now }                     from '@valjoux/timestamp'
+import { time }                    from '@valjoux/timestamp'
 import { mapper as mapperColumns } from '@vect/columns-mapper'
 import { iso as isoX }             from '@vect/matrix-init'
 
@@ -16,28 +18,31 @@ import { iso as isoX }             from '@vect/matrix-init'
  * @param {boolean} showParams
  * @returns {{lapse:CrosTab,result:CrosTab}}
  */
-export function strategies ({
-  repeat,
-  candidates,
-  methods,
-  showAverage = true,
-  showParams = false,
-}) {
-  const eta = new Eta(),
-    fname = Object.keys(methods), functions = Object.values(methods),
-    ents = Object.entries(candidates),
-    h = ents.length, w = fname.length,
+export function strategies({
+                             repeat,
+                             candidates,
+                             methods,
+                             showAverage = true,
+                             showParams = false,
+                           }) {
+  const
+    eta = new Eta(),
+    functionNames = Object.keys(methods),
+    prettyNames = functionNames.map(x => ros(x)).join(CO),
+    functions = Object.values(methods),
+    entries = Object.entries(candidates),
+    h = entries.length, w = functionNames.length,
     tmx = isoX(h, w, 0), vmx = isoX(h, w, undefined)
   eta.ini()
   for (let i = 0, cname, params; i < h; i++) {
-    [cname, params] = ents[i], progressLogger(i, cname, fname, repeat)
+    [cname, params] = entries[i], progressLogger(i, cname, prettyNames, repeat)
     eta.tick()
     for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
       vrow[j] = rep(repeat, functions[j], params)
       trow[j] = eta.tick()
     }
   }
-  const crostab = new CrosTab(Object.keys(candidates), fname, [[]])
+  const crostab = new CrosTab(Object.keys(candidates), functionNames, [[]])
   let [lapse, result] = [
     crostab.copy({ rows: tmx, title: 'lapse' }),
     crostab.copy({ rows: vmx, title: 'result' })
@@ -52,8 +57,8 @@ const rep = (r, func, params) => {
   return func.apply(null, params)
 }
 
-const progressLogger = (index, cname, fname, repeat) => {
-  `[${now()}] [${index}] (${cname}) tested by [${fname}], repeated * ${repeat}.` |> console.log
+const progressLogger = (index, cname, names, repeat) => {
+  `[${ time() }] [${ index }] (${ cname }) tested by [${ names }], repeated * ${ repeat }.` |> console.log
 }
 
 const average = nums => round(nums.reduce((a, b) => a + b, 0) / nums.length)
