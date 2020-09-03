@@ -15,16 +15,16 @@
     "test": "node -r @babel/register test/strategies.test.js"
   },
   "dependencies": {
-    "@analys/crostab": "^0.3.6",
+    "@analys/crostab": "^0.3.9",
     "@aryth/math": "^0.2.14",
     "@palett/fluo-vector": "^0.4.5",
     "@palett/ros": "^0.4.5",
     "@palett/says": "^0.4.5",
-    "@spare/enum-chars": "^0.8.10",
+    "@spare/enum-chars": "^0.9.3",
     "@valjoux/eta": "^0.1.11",
     "@valjoux/timestamp": "^0.1.11",
-    "@vect/columns-mapper": "^0.2.8",
-    "@vect/matrix-init": "^0.2.8"
+    "@vect/columns-mapper": "^0.2.9",
+    "@vect/matrix-init": "^0.2.9"
   },
   "repository": {
     "type": "git",

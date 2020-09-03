@@ -32,21 +32,24 @@ function strategies({
 }) {
   const eta$1 = new eta.Eta(),
         functionNames = Object.keys(methods),
-        prettyNames = functionNames.map(x => says.ros(x)).join(enumChars.CO),
+        prettyNames = functionNames.map(says.ros).join(enumChars.CO),
         functions = Object.values(methods),
         entries = Object.entries(candidates),
         h = entries.length,
         w = functionNames.length,
         tmx = matrixInit.iso(h, w, 0),
-        vmx = matrixInit.iso(h, w, undefined);
+        vmx = matrixInit.iso(h, w, null),
+        rep = repeater.bind({
+    repeat
+  });
   eta$1.ini();
 
-  for (let i = 0, cname, params; i < h; i++) {
-    [cname, params] = entries[i], progressLogger(i, cname, prettyNames, repeat);
+  for (let i = 0, candidateName, paramList; i < h; i++) {
+    [candidateName, paramList] = entries[i], progressLogger(i, candidateName, prettyNames, repeat);
     eta$1.tick();
 
     for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
-      vrow[j] = rep(repeat, functions[j], params);
+      vrow[j] = rep(functions[j], paramList, paramList.thisArg);
       trow[j] = eta$1.tick();
     }
   }
@@ -67,10 +70,14 @@ function strategies({
   };
 }
 
-const rep = (r, func, params) => {
-  for (--r; r > 0; r--) func.apply(null, params);
+const repeater = function (callable, params, thisArg) {
+  let {
+    repeat
+  } = this;
 
-  return func.apply(null, params);
+  for (--repeat; repeat > 0; repeat--) callable.apply(thisArg, params);
+
+  return callable.apply(thisArg, params);
 };
 
 const progressLogger = (index, cname, names, repeat) => {
