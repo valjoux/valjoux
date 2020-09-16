@@ -41,6 +41,8 @@ $ npm install @valjoux/<tool-name>
 | [**format-time**](packages/format-time)           | Convert Date to 'hh:mm:ss' format                                   | ![v][format-time-dm]      |
 | [**format-date-time**](packages/format-date-time) | Convert Date to 'YY/MM/DD hh:mm:ss' format                          | ![v][format-date-time-dm] |
 | [**timeout**](packages/timeout)                   | Returns async timeout                                               | ![v][timeout-dm]          |
+| [**timestamp**](packages/timestamp)               | Format date and time                                                | ![v][timestamp-dm]        |
+| [**timestamp-pretty**](packages/timestamp-pretty) | Format date and time in ansi-colored                                | ![v][timestamp-pretty-dm] |
 |                                                   |                                                                     |                           |
 
 [//]: <> (Local routes)
@@ -53,6 +55,8 @@ $ npm install @valjoux/<tool-name>
 [format-time-dm]: https://flat.badgen.net/npm/dm/@valjoux/format-time
 [format-date-time-dm]: https://flat.badgen.net/npm/dm/@valjoux/format-date-time
 [timeout-dm]: https://flat.badgen.net/npm/dm/@valjoux/linger
+[timestamp-dm]: https://flat.badgen.net/npm/dm/@valjoux/timestamp
+[timestamp-pretty-dm]: https://flat.badgen.net/npm/dm/@valjoux/timestamp-pretty
 
 #### Meta
 
