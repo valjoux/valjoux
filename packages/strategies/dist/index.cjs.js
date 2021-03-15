@@ -45,7 +45,8 @@ function strategies({
   eta$1.ini();
 
   for (let i = 0, candidateName, paramList; i < h; i++) {
-    [candidateName, paramList] = entries[i], progressLogger(i, candidateName, prettyNames, repeat);
+    [candidateName, paramList] = entries[i];
+    progressLogger(i, candidateName, prettyNames, repeat);
     eta$1.tick();
 
     for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
@@ -83,7 +84,7 @@ const repeater = function (callable, params, thisArg) {
 const progressLogger = (index, cname, names, repeat) => {
   var _ref;
 
-  _ref = `[${timestamp.time()}] [${index}] (${cname}) tested by [${names}], repeated * ${repeat}.`, console.log(_ref);
+  return _ref = `[${timestamp.time()}] [${index}] (${cname}) tested by [${names}], repeated * ${repeat}.`, console.log(_ref);
 };
 
 const average = nums => math.round(nums.reduce((a, b) => a + b, 0) / nums.length);

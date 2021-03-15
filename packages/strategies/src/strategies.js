@@ -36,7 +36,8 @@ export function strategies({
     rep = repeater.bind({ repeat })
   eta.ini()
   for (let i = 0, candidateName, paramList; i < h; i++) {
-    [candidateName, paramList] = entries[i], progressLogger(i, candidateName, prettyNames, repeat)
+    [candidateName, paramList] = entries[i]
+    progressLogger(i, candidateName, prettyNames, repeat)
     eta.tick()
     for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
       vrow[j] = rep(functions[j], paramList, paramList.thisArg)
@@ -59,8 +60,7 @@ const repeater = function (callable, params, thisArg) {
   return callable.apply(thisArg, params)
 }
 
-const progressLogger = (index, cname, names, repeat) => {
-  `[${ time() }] [${ index }] (${ cname }) tested by [${ names }], repeated * ${ repeat }.` |> console.log
-}
+const progressLogger = (index, cname, names, repeat) =>
+  `[${time()}] [${index}] (${cname}) tested by [${names}], repeated * ${repeat}.` |> console.log
 
 const average = nums => round(nums.reduce((a, b) => a + b, 0) / nums.length)
