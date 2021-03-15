@@ -16,15 +16,15 @@
   },
   "dependencies": {
     "@analys/crostab": "^0.4.23",
-    "@aryth/math": "^0.3.0",
-    "@palett/fluo-vector": "^0.5.2",
-    "@palett/ros": "^0.5.2",
-    "@palett/says": "^0.5.2",
-    "@spare/enum-chars": "^0.10.4",
+    "@aryth/math": "^0.3.6",
+    "@palett/fluo-vector": "^0.5.13",
+    "@palett/ros": "^0.5.13",
+    "@palett/says": "^0.5.13",
+    "@spare/enum-chars": "^0.10.12",
     "@valjoux/eta": "^0.2.2",
     "@valjoux/timestamp": "^0.2.2",
-    "@vect/columns-mapper": "^0.3.4",
-    "@vect/matrix-init": "^0.3.4"
+    "@vect/columns-mapper": "^0.3.6",
+    "@vect/matrix-init": "^0.3.6"
   },
   "repository": {
     "type": "git",
