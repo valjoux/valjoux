@@ -1,10 +1,11 @@
 import { AZURE, METRO, SUBTLE } from '@palett/presets'
-import { Timestamp }            from '../src/Timestamp'
 import { init }                 from '@vect/vector'
 import { delogger, logger }     from '@spare/logger'
 import { timeout }              from '@valjoux/timeout'
 import { rand, randBetw }       from '@aryth/rand'
 import { dateTime }             from '../index'
+import { Timestamp }            from '../src/Timestamp'
+
 
 const timestamp = Timestamp.build(
   AZURE,

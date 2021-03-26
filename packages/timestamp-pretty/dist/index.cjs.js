@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var presets = require('@palett/presets');
 var projector = require('@palett/projector');
 var enumChars = require('@spare/enum-chars');
-var presets = require('@palett/presets');
 
 const padDeci = x => x >= 10 ? '' + x : '0' + x;
 

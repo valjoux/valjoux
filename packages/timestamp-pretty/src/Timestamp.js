@@ -1,9 +1,9 @@
+import { METRO, SUBTLE } from '@palett/presets'
 import { Colorant }      from '@palett/projector'
 import { DASH, QT, RT }  from '@spare/enum-chars'
 import { padDeci }       from '../utils/padDeci'
 import { padKilo }       from '../utils/padKilo'
 import { padMilli }      from '../utils/padMilli'
-import { METRO, SUBTLE } from '@palett/presets'
 
 export class Timestamp {
 
@@ -20,6 +20,7 @@ export class Timestamp {
     if (milliPreset) {
       this.dt = Colorant({ min: 0, max: 999 }, milliPreset)
     }
+
   }
 
   static build(datePreset = METRO, timePreset = SUBTLE, milliPreset = SUBTLE) {

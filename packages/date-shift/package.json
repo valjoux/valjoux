@@ -15,12 +15,12 @@
     "test": "node -r @babel/register test/date-shift.test.js"
   },
   "dependencies": {
-    "@aryth/comparer": "^0.3.6",
+    "@aryth/comparer": "^0.3.14",
     "@valjoux/convert": "^0.2.3",
     "@valjoux/day-shift": "^0.2.3",
     "@valjoux/util-month-days": "^0.2.3",
     "@valjoux/util-ymd": "^0.2.3",
-    "@vect/vector-merge": "^0.3.6"
+    "@vect/vector-merge": "^0.3.7"
   },
   "repository": {
     "type": "git",

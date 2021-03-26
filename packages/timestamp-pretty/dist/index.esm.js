@@ -1,6 +1,6 @@
+import { METRO, SUBTLE } from '@palett/presets';
 import { Colorant } from '@palett/projector';
 import { QT, DASH, RT } from '@spare/enum-chars';
-import { METRO, SUBTLE } from '@palett/presets';
 
 const padDeci = x => x >= 10 ? '' + x : '0' + x;
 

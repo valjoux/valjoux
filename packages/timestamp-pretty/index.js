@@ -2,6 +2,7 @@ import { Timestamp } from './src/Timestamp'
 
 export { Timestamp } from './src/Timestamp'
 
+
 const timestamp = Timestamp.build()
 
 /** @type {Function} */ export const date = timestamp.date.bind(timestamp)
