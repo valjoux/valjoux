@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/date-shift",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@aryth/comparer": "^0.3.14",
-    "@valjoux/convert": "^0.2.3",
-    "@valjoux/day-shift": "^0.2.3",
-    "@valjoux/util-month-days": "^0.2.3",
-    "@valjoux/util-ymd": "^0.2.3",
+    "@valjoux/convert": "^0.2.4",
+    "@valjoux/day-shift": "^0.2.4",
+    "@valjoux/util-month-days": "^0.2.4",
+    "@valjoux/util-ymd": "^0.2.4",
     "@vect/vector-merge": "^0.3.7"
   },
   "repository": {
