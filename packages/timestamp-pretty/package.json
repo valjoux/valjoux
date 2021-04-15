@@ -15,9 +15,9 @@
     "test": "node -r @babel/register test/timestamp-pretty.test.js"
   },
   "dependencies": {
-    "@palett/presets": "^0.7.5",
-    "@palett/projector": "^0.7.5",
-    "@spare/enum-chars": "^0.11.10",
+    "@palett/presets": "^0.7.6",
+    "@palett/projector": "^0.7.6",
+    "@spare/enum-chars": "^0.11.12",
     "@valjoux/convert": "^0.2.5",
     "@valjoux/format-date-time": "^0.2.5",
     "@valjoux/format-time": "^0.2.5"
