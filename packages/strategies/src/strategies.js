@@ -1,8 +1,8 @@
 import { CrosTab }                 from '@analys/crostab'
 import { round }                   from '@aryth/math'
 import { fluoVector }              from '@palett/fluo-vector'
-import { ros }                     from '@palett/says'
 import { CO }                      from '@spare/enum-chars'
+import { ros }                     from '@spare/logger'
 import { Eta }                     from '@valjoux/eta'
 import { time }                    from '@valjoux/timestamp'
 import { mapper as mapperColumns } from '@vect/columns-mapper'
@@ -26,17 +26,17 @@ export function strategies({
                              showParams = false,
                            }) {
   const
-    eta = new Eta(),
-    functionNames = Object.keys(methods),
-    prettyNames = functionNames.map(ros).join(CO),
-    functions = Object.values(methods),
-    entries = Object.entries(candidates),
-    h = entries.length, w = functionNames.length,
+    eta                      = new Eta(),
+    functionNames            = Object.keys(methods),
+    prettyNames              = functionNames.map(ros).join(CO),
+    functions                = Object.values(methods),
+    entries                  = Object.entries(candidates),
+    h                        = entries.length, w = functionNames.length,
     tmx = isoX(h, w, 0), vmx = isoX(h, w, null),
-    rep = repeater.bind({ repeat })
+    rep                      = repeater.bind({ repeat })
   eta.ini()
   for (let i = 0, candidateName, paramList; i < h; i++) {
-    [candidateName, paramList] = entries[i]
+    [ candidateName, paramList ] = entries[i]
     progressLogger(i, candidateName, prettyNames, repeat)
     eta.tick()
     for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
@@ -44,8 +44,8 @@ export function strategies({
       trow[j] = eta.tick()
     }
   }
-  const crostab = new CrosTab(Object.keys(candidates), functionNames, [[]])
-  let [lapse, result] = [
+  const crostab = new CrosTab(Object.keys(candidates), functionNames, [ [] ])
+  let [ lapse, result ] = [
     crostab.copy({ rows: tmx, title: 'lapse' }),
     crostab.copy({ rows: vmx, title: 'result' })
   ]
