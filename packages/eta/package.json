@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/eta",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Simplistic timer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@palett/presets": "^0.7.6",
-    "@valjoux/timestamp": "^0.2.6",
-    "@valjoux/timestamp-pretty": "^0.2.6"
+    "@valjoux/timestamp": "^0.2.7",
+    "@valjoux/timestamp-pretty": "^0.2.7"
   },
   "repository": {
     "type": "git",
