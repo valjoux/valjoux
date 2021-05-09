@@ -19,12 +19,8 @@ export default [
       { file: module, format: 'esm' }  // ES module (for bundlers) build.
     ],
     plugins: [
-      nodeResolve({
-        preferBuiltins: true
-      }),
-      commonjs({
-        include: /node_modules/,
-      }),
+      nodeResolve({ preferBuiltins: true }),
+      commonjs({ include: /node_modules/ }),
       babel({
         babelrc: false,
         comments: true,
@@ -40,7 +36,7 @@ export default [
           [ '@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' } ],
           [ '@babel/plugin-proposal-class-properties', { loose: true } ],
           [ '@babel/plugin-proposal-private-methods', { loose: true } ],
-          [ '@babel/plugin-transform-runtime', { helpers: false, } ]
+          // [ '@babel/plugin-transform-runtime', { helpers: false, regenerator: true } ]
         ]
       }),
       json(),

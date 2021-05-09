@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@analys/crostab": "^0.5.0",
-    "@aryth/math": "^0.3.16",
+    "@aryth/math": "^0.3.19",
     "@palett/fluo-vector": "^0.7.7",
     "@palett/ros": "^0.7.7",
     "@palett/says": "^0.7.7",
