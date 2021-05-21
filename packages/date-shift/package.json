@@ -20,7 +20,7 @@
     "@valjoux/day-shift": "^0.2.9",
     "@valjoux/util-month-days": "^0.2.9",
     "@valjoux/util-ymd": "^0.2.9",
-    "@vect/vector-merge": "^0.3.9"
+    "@vect/vector-merge": "^0.3.10"
   },
   "repository": {
     "type": "git",
