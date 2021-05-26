@@ -20,7 +20,7 @@
     "@valjoux/timeout": "^0.2.10"
   },
   "devDependencies": {
-    "systeminformation": "^5.7.1"
+    "systeminformation": "^5.7.2"
   },
   "repository": {
     "type": "git",
