@@ -1,10 +1,10 @@
 import { timeout } from '@valjoux/timeout'
 
 export function linger(ms, fn, ...args) {
-  return _linger.call(this, ms, fn, args)
+  return awaitToPromise.call(this, ms, fn, args)
 }
 
-export function _linger(ms, fn, args) {
+export function awaitToPromise(ms, fn, args) {
   const self = this
   return new Promise((pass, veto) => {
     let st = false, rs
