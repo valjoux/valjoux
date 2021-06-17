@@ -3,9 +3,9 @@ import { noop } from '@ject/noop';
 import { FUN } from '@typen/enum-data-types';
 
 function linger(ms, fn, ...args) {
-  return _linger.call(this, ms, fn, args);
+  return awaitToPromise.call(this, ms, fn, args);
 }
-function _linger(ms, fn, args) {
+function awaitToPromise(ms, fn, args) {
   const self = this;
   return new Promise((pass, veto) => {
     let st = false,
@@ -23,18 +23,6 @@ class AsyncLooper {
     this.fn = noop;
     this.args = null;
     this.ctx = null;
-
-    this.loop = function* (lapse) {
-      const {
-        ctx,
-        ms,
-        fn,
-        args
-      } = this;
-      yield fn.apply(ctx, args);
-
-      while (true) yield _linger.call(ctx, lapse !== null && lapse !== void 0 ? lapse : ms, fn, args);
-    };
 
     if (typeof props === FUN) {
       // (props && props.constructor && props.call && props.apply)
@@ -58,9 +46,21 @@ class AsyncLooper {
     });
   }
 
-  async setInterval(ms, cb) {
+  *loop(ms) {
+    const {
+      ctx,
+      ms: thisMs,
+      fn,
+      args
+    } = this;
+    yield fn.apply(ctx, args);
+
+    while (true) yield awaitToPromise.call(ctx, ms ?? thisMs, fn, args);
+  }
+
+  async setInterval(ms, pipe) {
     for await (const result of this.loop(ms)) {
-      if (cb) cb(result);
+      if (pipe) pipe(result);
     }
   }
 
