@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/linger",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@ject/noop": "^0.0.12",
     "@typen/enum-data-types": "^0.1.16",
-    "@valjoux/timeout": "^0.2.12"
+    "@valjoux/timeout": "^0.2.13"
   },
   "devDependencies": {
     "systeminformation": "^5.7.7"
