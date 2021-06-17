@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/strategies",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -20,8 +20,8 @@
     "@palett/fluo-vector": "^0.8.16",
     "@spare/enum-chars": "^0.11.20",
     "@spare/says": "^0.11.20",
-    "@valjoux/eta": "^0.2.13",
-    "@valjoux/timestamp": "^0.2.13",
+    "@valjoux/eta": "^0.2.14",
+    "@valjoux/timestamp": "^0.2.14",
     "@vect/columns-mapper": "^0.4.4",
     "@vect/matrix-init": "^0.4.4"
   },
