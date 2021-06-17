@@ -1,6 +1,6 @@
-import { noop }    from '@ject/noop'
-import { FUN }     from '@typen/enum-data-types'
-import { _linger } from './linger'
+import { noop }           from '@ject/noop'
+import { FUN }            from '@typen/enum-data-types'
+import { awaitToPromise } from './linger'
 
 export class AsyncLooper {
   ms = 0
@@ -20,14 +20,14 @@ export class AsyncLooper {
   }
   static build(props) { return new AsyncLooper(props) }
   static from(fn, ...args) { return new AsyncLooper({ fn, args }) }
-  loop = function* (lapse) {
-    const { ctx, ms, fn, args } = this
+  * loop(ms) {
+    const { ctx, ms: thisMs, fn, args } = this
     yield fn.apply(ctx, args)
-    while (true) yield _linger.call(ctx, lapse ?? ms, fn, args)
+    while (true) yield awaitToPromise.call(ctx, ms ?? thisMs, fn, args)
   }
-  async setInterval(ms, cb) {
+  async setInterval(ms, pipe) {
     for await (const result of this.loop(ms)) {
-      if (cb) cb(result)
+      if (pipe) pipe(result)
     }
   }
 }
