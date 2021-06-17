@@ -9,7 +9,7 @@ class Eta {
     this.c = new Date();
     this.p = 0;
     this.d = 0;
-    this.ft = formatter !== null && formatter !== void 0 ? formatter : time;
+    this.ft = formatter ?? time;
   }
 
   tick() {
