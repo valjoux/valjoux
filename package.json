@@ -15,7 +15,8 @@
     "watch-specific": "lerna exec --scope=kalorie -- rollup -c ../../rollup.config.js -w"
   },
   "devDependencies": {
-    "@aryth/rand": "^0.3.21",
+    "@aryth/math": "^0.3.22",
+    "@aryth/rand": "^0.3.22",
     "@babel/core": "^7.14.6",
     "@babel/plugin-external-helpers": "^7.14.5",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -40,8 +41,11 @@
     "@spare/logger": "^0.11.20",
     "@vect/enum-matrix-directions": "^0.4.4",
     "@vect/matrix": "^0.4.4",
+    "@vect/object-mapper": "^0.4.4",
     "@vect/vector": "^0.4.4",
     "@vect/vector-mapper": "^0.4.4",
+    "@vect/object-select": "^0.4.4",
+    "@vect/vector-select": "^0.4.4",
     "crostab": "^0.3.9",
     "lerna": "^4.0.0",
     "rollup": "^2.52.1",
