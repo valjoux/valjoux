@@ -13,8 +13,9 @@ export function overtime(ms, fn, args) {
 // wait for at most ms and return value or default. (immediate or no later than ontime time)
 export function intime(ms, fn, args, df) {
   return new Promise((pass, veto) => {
-    Promise.resolve(fn?.apply(this, args)).then((x) => pass(x), veto)
-    Promise.resolve(timeout(ms)).then(() => pass(df), veto)
+    let rs = df
+    Promise.resolve(fn?.apply(this, args)).then((x) => pass(rs = x), veto)
+    Promise.resolve(timeout(ms)).then(() => pass(rs), veto)
   })
 }
 
@@ -27,11 +28,4 @@ export function ontime(ms, fn, args, df) {
   })
 }
 
-export function* infinite(vec) {
-  const hi = vec.length
-  let lo = 0
-  while (true) {
-    yield vec[lo++]
-    if (lo === hi) {lo = 0}
-  }
-}
+

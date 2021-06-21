@@ -1,5 +1,5 @@
 import { FUN }                      from '@typen/enum-data-types'
-import { intime, ontime, overtime } from '../util'
+import { intime, ontime, overtime } from './timings'
 
 export class Escape {
   instant = true

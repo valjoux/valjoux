@@ -1,6 +1,7 @@
-import { FUN, OBJ }                           from '@typen/enum-data-types'
-import { iterate }                            from '@vect/vector-mapper'
-import { infinite, intime, ontime, overtime } from '../util'
+import { FUN, OBJ }                 from '@typen/enum-data-types'
+import { iterate }                  from '@vect/vector-mapper'
+import { infinite }                 from './infinite'
+import { intime, ontime, overtime } from './timings'
 
 export class Cylinder {
   collection = []
