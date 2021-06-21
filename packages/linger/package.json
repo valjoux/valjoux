@@ -17,7 +17,8 @@
   "dependencies": {
     "@ject/noop": "^0.0.12",
     "@typen/enum-data-types": "^0.1.16",
-    "@valjoux/timeout": "^0.2.14"
+    "@valjoux/timeout": "^0.2.14",
+    "@vect/vector-mapper": "^0.4.4"
   },
   "devDependencies": {
     "systeminformation": "^5.7.7"

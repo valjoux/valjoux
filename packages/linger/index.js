@@ -1,2 +1,4 @@
-export { linger }      from './src/linger'
-export { AsyncLooper } from './src/asyncLooper'
+export { linger } from './src/linger'
+export { Escape } from './src/escape'
+
+
