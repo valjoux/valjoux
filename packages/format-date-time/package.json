@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/format-date-time",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "timer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -15,8 +15,8 @@
     "test": "node -r @babel/register test/format-date-time.test.js"
   },
   "dependencies": {
-    "@valjoux/format-date": "^0.3.5",
-    "@valjoux/format-time": "^0.3.5"
+    "@valjoux/format-date": "^0.3.6",
+    "@valjoux/format-time": "^0.3.6"
   },
   "repository": {
     "type": "git",
