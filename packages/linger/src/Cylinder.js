@@ -8,7 +8,7 @@ import { infinite }                 from './infinite'
 export class Cylinder {
   collection = []
   instant = true
-  continue = true
+  on = true
   constructor(configs, mode) {
     iterate(
       configs,
@@ -32,16 +32,20 @@ export class Cylinder {
     if (val === 'overtime') { return this.timing = overtime }
     return this.timing = ontime
   }
+
+  get continue() { return this.on}
+  set continue(value) { return this.on = value }
+
   set default(value) { for (let conf of this.collection) conf.df = value }
 
-  async setInterval(ms, pipe) { for await (const result of this.loop(ms)) if (pipe) pipe(result) }
+  async setInterval(ms, pipe) { for await (const result of this.loop(ms)) if (pipe && this.on) pipe(result) }
   * loop(ms) {
     const cylinder = infinite(this.collection)
-    if (this.instant && this.continue) {
+    if (this.instant && this.on) {
       const { value: { fn } } = cylinder.next()
       yield fn()
     }
-    while (this.continue) {
+    while (this.on) {
       const { value: { fn, df } } = cylinder.next()
       yield this.timing(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
