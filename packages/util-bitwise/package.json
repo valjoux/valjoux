@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/util-bitwise",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

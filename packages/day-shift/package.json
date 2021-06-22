@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/day-shift",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -15,8 +15,8 @@
     "test": "node -r @babel/register test/day-shift.test.js"
   },
   "dependencies": {
-    "@valjoux/util-leap-year": "^0.3.6",
-    "@valjoux/util-month-days": "^0.3.6"
+    "@valjoux/util-leap-year": "^0.3.7",
+    "@valjoux/util-month-days": "^0.3.7"
   },
   "repository": {
     "type": "git",
