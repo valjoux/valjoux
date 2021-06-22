@@ -1,5 +1,4 @@
 import { timeout } from '@valjoux/timeout'
-
 // wait for at least ms and return value. (no earlier than ontime time)
 //
 export function overtime(ms, fn, args) {
@@ -27,5 +26,7 @@ export function ontime(ms, fn, args, df) {
     Promise.resolve(timeout(ms)).then(() => pass(st ? rs : df), veto)
   })
 }
+
+
 
 
