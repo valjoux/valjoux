@@ -38,11 +38,11 @@ export class Cylinder {
     const vec = infinite(this.collection)
     if (this.instant) {
       const { value: { fn, df } } = vec.next()
-      yield intime(ms, fn, null, df)
+      yield intime(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
     while (true) {
       const { value: { fn, df } } = vec.next()
-      yield this.timing(ms, fn, null, df)
+      yield this.timing(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
   }
 }
