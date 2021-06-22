@@ -21,7 +21,7 @@ export class Cylinder {
     )
     this.mode = mode ?? 'ontime'
   }
-  static build(configs) { return new Cylinder(configs) }
+  static build(configs, mode) { return new Cylinder(configs, mode) }
   static from(...funcs) { return new Cylinder(funcs) }
 
   get mode() { return this.timing.name }
@@ -45,6 +45,4 @@ export class Cylinder {
       yield this.timing(ms, fn, null, df)
     }
   }
-
-
 }
