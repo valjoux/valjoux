@@ -18,8 +18,8 @@ async function lazyRand(lo, hi) {
   return linger(800, function getRand() { return randBetw(lo, hi) })
 }
 
-const cylinder = Cylinder.from(lazyRand, si.cpuCurrentSpeed, si.cpuTemperature, mem, { fn: lazyRand, arg: [ 10, 20 ] })
+const cylinder = Cylinder.from({ fn: lazyRand, arg: [ 10, 20 ] }, si.cpuCurrentSpeed, si.cpuTemperature, mem, lazyRand)
 cylinder.default = AEU
 cylinder
-  .setInterval(1000, data => data |> decoFlat |> says['processes'])
+  .setInterval(randBetw.bind(null, 1000, 1500), data => data |> decoFlat |> says['processes'])
   .then()

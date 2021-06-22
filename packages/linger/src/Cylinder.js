@@ -35,13 +35,13 @@ export class Cylinder {
 
   async setInterval(ms, pipe) { for await (const result of this.loop(ms)) if (pipe) pipe(result) }
   * loop(ms) {
-    const vec = infinite(this.collection)
+    const cylinder = infinite(this.collection)
     if (this.instant) {
-      const { value: { fn, df } } = vec.next()
-      yield intime(typeof ms === FUN ? ms() : ms, fn, null, df)
+      const { value: { fn } } = cylinder.next()
+      yield fn()
     }
     while (true) {
-      const { value: { fn, df } } = vec.next()
+      const { value: { fn, df } } = cylinder.next()
       yield this.timing(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
   }
