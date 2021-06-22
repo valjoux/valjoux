@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/convert",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -15,7 +15,7 @@
     "test": ""
   },
   "dependencies": {
-    "@valjoux/util-bitwise": "^0.3.2"
+    "@valjoux/util-bitwise": "^0.3.3"
   },
   "repository": {
     "type": "git",
