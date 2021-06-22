@@ -5,6 +5,7 @@ import { intime, ontime, overtime } from '@valjoux/timeout'
 
 export class Escape {
   instant = true
+  continue = false
   constructor(conf, mode) {
     this.conf = {
       fn: typeof conf === OBJ ? Chore.create(conf).caller // use { fn, arg, ctx, mode } from conf
@@ -26,18 +27,15 @@ export class Escape {
   }
   set default(value) { this.conf.df = value }
 
-  async setInterval(ms, pipe) {
-    for await (const result of this.loop(ms)) {
-      if (pipe) pipe(result)
-    }
-  }
+  async setInterval(ms, pipe) { for await (const result of this.loop(ms)) if (pipe) pipe(result) }
+
   * loop(ms) {
     const { fn, df } = this.conf
     if (typeof fn === FUN) {
-      if (this.instant) {
+      if (this.instant && this.continue) {
         yield intime(ms, fn, null, df)
       }
-      while (true) {
+      while (this.continue) {
         yield this.timing(ms, fn, null, df)
       }
     }

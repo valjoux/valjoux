@@ -8,6 +8,7 @@ import { infinite }                 from './infinite'
 export class Cylinder {
   collection = []
   instant = true
+  continue = true
   constructor(configs, mode) {
     iterate(
       configs,
@@ -36,11 +37,11 @@ export class Cylinder {
   async setInterval(ms, pipe) { for await (const result of this.loop(ms)) if (pipe) pipe(result) }
   * loop(ms) {
     const cylinder = infinite(this.collection)
-    if (this.instant) {
+    if (this.instant && this.continue) {
       const { value: { fn } } = cylinder.next()
       yield fn()
     }
-    while (true) {
+    while (this.continue) {
       const { value: { fn, df } } = cylinder.next()
       yield this.timing(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
