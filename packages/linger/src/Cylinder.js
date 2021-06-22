@@ -1,9 +1,9 @@
 import { Chore }                    from '@ject/chore'
 import { noop }                     from '@ject/noop'
 import { FUN, OBJ }                 from '@typen/enum-data-types'
+import { intime, ontime, overtime } from '@valjoux/timeout'
 import { iterate }                  from '@vect/vector-mapper'
 import { infinite }                 from './infinite'
-import { intime, ontime, overtime } from './timings'
 
 export class Cylinder {
   collection = []

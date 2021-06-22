@@ -1,7 +1,7 @@
 import { Chore }                    from '@ject/chore'
 import { noop }                     from '@ject/noop'
 import { FUN, OBJ }                 from '@typen/enum-data-types'
-import { intime, ontime, overtime } from './timings'
+import { intime, ontime, overtime } from '@valjoux/timeout'
 
 export class Escape {
   instant = true
