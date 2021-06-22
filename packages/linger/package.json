@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/linger",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -19,7 +19,7 @@
     "@ject/noop": "^0.0.16",
     "@typen/enum-data-types": "^0.1.17",
     "@typen/nullish": "^0.1.17",
-    "@valjoux/timeout": "^0.3.0",
+    "@valjoux/timeout": "^0.3.1",
     "@vect/vector-mapper": "^0.4.4"
   },
   "devDependencies": {
