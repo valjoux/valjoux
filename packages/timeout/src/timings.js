@@ -1,7 +1,7 @@
 import { valid }   from '@typen/nullish'
 import { timeout } from '../dist/index.esm'
 
-export function overtime(ms, arg, fn) {
+export function overtime(ms, fn, arg) {
   return new Promise((pass, veto) => {
     let st = 0, rs
     Promise.resolve(valid(arg) ? fn(arg) : fn()).then((x) => st++ ? pass(x) : rs = x, veto)
