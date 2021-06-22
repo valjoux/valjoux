@@ -1,4 +1,4 @@
-import { rand }     from '@aryth/rand'
+import { randBetw } from '@aryth/rand'
 import { says }     from '@palett/says'
 import { AEU }      from '@spare/enum-chars'
 import { decoFlat } from '@spare/logger'
@@ -14,11 +14,11 @@ async function mem() {
   return mapper(await si.mem(), n => ( n / 1024 ) >> 10)
 }
 
-async function lazyRand() {
-  return linger(1200, function getRand() { return rand(10) })
+async function lazyRand(lo, hi) {
+  return linger(800, function getRand() { return randBetw(lo, hi) })
 }
 
-const cylinder = Cylinder.from(lazyRand, si.cpuCurrentSpeed, si.cpuTemperature, mem, lazyRand)
+const cylinder = Cylinder.from(lazyRand, si.cpuCurrentSpeed, si.cpuTemperature, mem, { fn: lazyRand, arg: [ 10, 20 ] })
 cylinder.default = AEU
 cylinder
   .setInterval(1000, data => data |> decoFlat |> says['processes'])
