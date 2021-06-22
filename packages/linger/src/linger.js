@@ -1,6 +1,7 @@
 import { overtime } from './timings'
 
-export function linger(ms, fn, ...args) {
-  return overtime.call(this, ms, fn, args)
+export function linger(ms, fn, arg, df) {
+  const timing = this?.timing ?? overtime
+  return timing(ms, fn, arg, df)
 }
 
