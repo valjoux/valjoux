@@ -23,5 +23,5 @@ const pipe = ({ list }) => {
 }
 
 escapeTest
-  .setInterval(3000, pipe)
+  .setInterval(800, pipe)
   .then()
