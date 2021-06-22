@@ -1,19 +1,17 @@
-import { FUN }                      from '@typen/enum-data-types'
+import { Chore }                    from '@ject/chore'
+import { noop }                     from '@ject/noop'
+import { FUN, OBJ }                 from '@typen/enum-data-types'
 import { intime, ontime, overtime } from './timings'
 
 export class Escape {
   instant = true
   constructor(conf, mode) {
-    this.conf = typeof conf === FUN
-      ? {
-        fn: conf
-      }
-      : {
-        fn: conf.fn ?? conf.method ?? conf.func,
-        args: conf.args ?? conf.params ?? [ conf.arg ?? conf.param ],
-        ctx: conf.ctx ?? conf.context ?? conf.thisArg,
-        df: conf.df ?? conf.default
-      }
+    this.conf = {
+      fn: typeof conf === OBJ ? Chore.create(conf).caller // use { fn, arg, ctx, mode } from conf
+        : typeof conf === FUN ? conf
+          : noop,
+      df: conf?.df
+    }
     this.mode = mode ?? 'ontime'
   }
   static build(props) { return new Escape(props) }
@@ -34,13 +32,13 @@ export class Escape {
     }
   }
   * loop(ms) {
-    const { fn, args, ctx, df } = this.conf
+    const { fn, df } = this.conf
     if (typeof fn === FUN) {
       if (this.instant) {
-        yield intime.call(ctx, ms, fn, args, df)
+        yield intime(ms, fn, null, df)
       }
       while (true) {
-        yield this.timing.call(ctx, ms, fn, args, df)
+        yield this.timing(ms, fn, null, df)
       }
     }
   }
