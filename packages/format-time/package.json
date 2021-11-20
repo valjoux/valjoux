@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/format-time",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "timer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

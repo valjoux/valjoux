@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/strategies",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "date & time util toolset",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,14 +16,14 @@
   },
   "dependencies": {
     "@analys/crostab": "^0.5.2",
-    "@aryth/math": "^0.3.22",
-    "@palett/fluo-vector": "^0.8.16",
-    "@spare/enum-chars": "^0.11.20",
-    "@spare/says": "^0.11.20",
-    "@valjoux/eta": "^0.3.7",
-    "@valjoux/timestamp": "^0.3.7",
-    "@vect/columns-mapper": "^0.4.4",
-    "@vect/matrix-init": "^0.4.4"
+    "@aryth/math": "^0.3.26",
+    "@palett/fluo-vector": "^0.8.18",
+    "@spare/enum-chars": "^0.12.4",
+    "@spare/says": "^0.12.4",
+    "@valjoux/eta": "^0.3.8",
+    "@valjoux/timestamp": "^0.3.8",
+    "@vect/columns-mapper": "^0.4.9",
+    "@vect/matrix-init": "^0.4.9"
   },
   "repository": {
     "type": "git",
