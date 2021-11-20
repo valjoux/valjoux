@@ -33,7 +33,7 @@ export class Cylinder {
     return this.timing = ontime
   }
 
-  get continue() { return this.on}
+  get continue() { return this.on }
   set continue(value) { return this.on = value }
 
   set default(value) { for (let conf of this.collection) conf.df = value }
@@ -49,5 +49,6 @@ export class Cylinder {
       const { value: { fn, df } } = cylinder.next()
       yield this.timing(typeof ms === FUN ? ms() : ms, fn, null, df)
     }
+    return void 0
   }
 }
