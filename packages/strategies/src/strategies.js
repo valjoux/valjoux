@@ -61,6 +61,6 @@ const repeater = function (callable, params, thisArg) {
 }
 
 const progressLogger = (index, cname, names, repeat) =>
-  `[${time()}] [${index}] (${cname}) tested by [${names}], repeated * ${repeat}.` |> console.log
+  `[${ time() }] [${ index }] (${ cname }) tested by [${ names }], repeated * ${ repeat }.` |> console.log
 
 const average = nums => round(nums.reduce((a, b) => a + b, 0) / nums.length)
