@@ -1,16 +1,18 @@
-import { roundD2 }     from '@aryth/math'
-import { says }        from '@palett/says'
-import { decoSamples } from '@spare/logger'
-import { time }        from '@valjoux/timestamp-pretty'
-import { select }      from '@vect/object-select'
-import { mutate }      from '@vect/vector-mapper'
-import si              from 'systeminformation'
-import { Escape }      from '../src/Escape'
+import { roundD2 }                   from '@aryth/math'
+import { says }                      from '@palett/says'
+import { deco, decoSamples, logger } from '@spare/logger'
+import { time }                      from '@valjoux/timestamp-pretty'
+import { select }                    from '@vect/object-select'
+import { mutate }                    from '@vect/vector-mapper'
+import si                            from 'systeminformation'
+import { Escape }                    from '../src/Escape'
 
 
 says['processes'].attach(time)
+
 const KEYS = [ 'pid', 'parentPid', 'name', 'cpu', 'cpuu', 'cpus', 'mem', 'command', 'path' ]
-const escapeTest = Escape.build(si.processes)
+
+
 const pipe = ({ list }) => {
   list = list.sort(({ cpus: a }, { cpus: b }) => b - a).slice(0, 8)
   mutate(list, sample => {
@@ -22,6 +24,17 @@ const pipe = ({ list }) => {
   list |> decoSamples |> says['processes']
 }
 
-escapeTest
-  .setInterval(800, pipe)
-  .then()
+const test = async () => {
+
+  ( await si.processes() ) |> deco |> logger
+  const escape = Escape.build(si.processes)
+  let i = 0
+  escape
+    .setInterval(800, result => {
+      if (i++ === 5) escape.continue = false
+      return pipe(result)
+    })
+    .then()
+}
+
+test().then()
