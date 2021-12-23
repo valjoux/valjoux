@@ -1,7 +1,7 @@
 import { valid }   from '@typen/nullish'
 import { timeout } from './timeout'
 
-
+// wait for at least ms and return value or default. (immediate or no later than ontime time)
 export function overtime(ms, fn, arg) {
   return new Promise((pass, veto) => {
     let rs, st = 0
@@ -15,6 +15,7 @@ export function intime(ms, fn, arg, df) {
   return new Promise((pass, veto) => {
     Promise.resolve(valid(arg) ? fn(arg) : fn()).then((x) => pass(df = x), veto)
     Promise.resolve(timeout(ms)).then(() => pass(df), veto)
+
   })
 }
 
