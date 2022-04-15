@@ -1,0 +1,6 @@
+108 error Error: Command failed with exit code 128: git push --follow-tags --no-verify --atomic origin master
+108 error remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+108 error remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+108 error fatal: Authentication failed for 'https://github.com/valjoux/valjoux.git/'
+108 error     at makeError (/home/hazen/banyan/valjoux/node_modules/execa/lib/error.js:59:11)
+108 error     at handlePromise (/home/hazen/banyan/valjoux/node_modules/execa/index.js:114:26)
