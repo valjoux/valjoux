@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/util-quarter",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "util on quarter",
   "main": "./dist/index.cjs",
   "exports": {
@@ -18,8 +18,8 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/util-leap-year": "^0.3.9",
-    "@valjoux/util-month-days": "^0.3.9"
+    "@valjoux/util-leap-year": "^0.3.10",
+    "@valjoux/util-month-days": "^0.3.10"
   },
   "repository": {
     "type": "git",
