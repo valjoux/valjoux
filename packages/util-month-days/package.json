@@ -2,8 +2,11 @@
   "name": "@valjoux/util-month-days",
   "version": "0.3.8",
   "description": "date & time util toolset",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "./dist/index.cjs",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
   "files": [
     "dist"
   ],
