@@ -18,12 +18,12 @@
     "test": "node -r @babel/register test/linger.test.js"
   },
   "dependencies": {
-    "@ject/chore": "^0.0.16",
-    "@ject/noop": "^0.0.16",
-    "@typen/enum-data-types": "^0.1.17",
-    "@typen/nullish": "^0.1.17",
+    "@ject/chore": "^0.0.17",
+    "@ject/noop": "^0.0.17",
+    "@typen/enum-data-types": "^0.1.19",
+    "@typen/nullish": "^0.1.19",
     "@valjoux/timeout": "^0.3.11",
-    "@vect/vector-mapper": "^0.5.8"
+    "@vect/vector-mapper": "^0.5.22"
   },
   "devDependencies": {
     "systeminformation": "^5.11.14"
