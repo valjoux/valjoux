@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/format-date",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "timer",
   "main": "./dist/index.cjs",
   "exports": {
