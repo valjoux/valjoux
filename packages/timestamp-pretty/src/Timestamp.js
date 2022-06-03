@@ -1,5 +1,5 @@
 import { METRO, SUBTLE } from '@palett/presets'
-import { Colorant }      from '@palett/projector'
+import { Proj }          from '@palett/projector'
 import { DASH, QT, RT }  from '@spare/enum-chars'
 import { padDeci }       from '../utils/padDeci'
 import { padKilo }       from '../utils/padKilo'
@@ -9,16 +9,16 @@ export class Timestamp {
 
   constructor(datePreset, timePreset, milliPreset) {
     if (datePreset) {
-      this.dy = Colorant({ min: 1990, max: 2030 }, datePreset)
-      this.dm = Colorant({ min: 1, max: 12 }, datePreset)
-      this.dd = Colorant({ min: 1, max: 31 }, datePreset)
+      this.dy = Proj.from({ min: 1990, max: 2030 }, datePreset)
+      this.dm = Proj.from({ min: 1, max: 12 }, datePreset)
+      this.dd = Proj.from({ min: 1, max: 31 }, datePreset)
     }
     if (timePreset) {
-      this.dh = Colorant({ min: 0, max: 23 }, timePreset)
-      this.ds = Colorant({ min: 0, max: 59 }, timePreset)
+      this.dh = Proj.from({ min: 0, max: 23 }, timePreset)
+      this.ds = Proj.from({ min: 0, max: 59 }, timePreset)
     }
     if (milliPreset) {
-      this.dt = Colorant({ min: 0, max: 999 }, milliPreset)
+      this.dt = Proj.from({ min: 0, max: 999 }, milliPreset)
     }
 
   }
@@ -39,9 +39,9 @@ export class Timestamp {
   decoYMD(year, month, day) {
     return this.dy
       ? (
-        (padKilo(year) |> this.dy(year)) + DASH +
-        (padDeci(month) |> this.dm(month)) + DASH +
-        (padDeci(day) |> this.dd(day))
+        (this.dy.render(year, padKilo(year))) + DASH +
+        (this.dm.render(month, padDeci(month))) + DASH +
+        (this.dd.render(day, padDeci(day)))
       )
       : (
         padKilo(year) + DASH +
@@ -53,9 +53,9 @@ export class Timestamp {
   decoHMS(hour, minute, second) {
     return this.dh
       ? (
-        (padDeci(hour) |> this.dh(hour)) + RT +
-        (padDeci(minute) |> this.ds(minute)) + RT +
-        (padDeci(second) |> this.ds(second))
+        (this.dh.render(hour, padDeci(hour))) + RT +
+        (this.ds.render(minute, padDeci(minute))) + RT +
+        (this.ds.render(second, padDeci(second)))
       )
       : (
         padDeci(hour) + RT +
