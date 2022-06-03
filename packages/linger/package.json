@@ -26,7 +26,7 @@
     "@vect/vector-mapper": "^0.7.11"
   },
   "devDependencies": {
-    "systeminformation": "^5.11.15"
+    "systeminformation": "^5.11.16"
   },
   "repository": {
     "type": "git",
