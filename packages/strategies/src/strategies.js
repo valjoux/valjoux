@@ -1,12 +1,13 @@
-import { CrosTab }                 from '@analys/crostab'
-import { round }                   from '@aryth/math'
-import { fluoVector }              from '@palett/fluo-vector'
-import { CO }                      from '@spare/enum-chars'
-import { ros }                     from '@spare/says'
-import { Eta }                     from '@valjoux/eta'
-import { time }                    from '@valjoux/timestamp'
-import { mapper as mapperColumns } from '@vect/columns-mapper'
-import { iso as isoX }             from '@vect/matrix-init'
+import { fluoVector }    from '@palett/fluo-vector'
+import { CO }            from '@spare/enum-chars'
+import { ros }           from '@spare/xr'
+import { Eta }           from '@valjoux/eta'
+import { time }          from '@valjoux/timestamp'
+import { columnsMapper } from '@vect/columns-mapper'
+import { Crostab }       from '@analyz/crostab'
+import { Stat }          from '@vect/vector-stat'
+import { indexed }       from '@vect/object-mapper'
+import { round }         from '@aryth/math'
 
 /**
  * Cross by candidates and functions, under certain repeat.
@@ -16,7 +17,7 @@ import { iso as isoX }             from '@vect/matrix-init'
  * @param {Object<string,function>} methods
  * @param {boolean} average
  * @param {boolean} showParams
- * @returns {{lapse:CrosTab,result:CrosTab}}
+ * @returns {{lapse:Crostab,result:Crostab}}
  */
 export function strategies({
                              repeat,
@@ -25,42 +26,34 @@ export function strategies({
                              showAverage = true,
                              showParams = false,
                            }) {
-  const
-    eta                      = new Eta(),
-    functionNames            = Object.keys(methods),
-    prettyNames              = functionNames.map(ros).join(CO),
-    functions                = Object.values(methods),
-    entries                  = Object.entries(candidates),
-    h                        = entries.length, w = functionNames.length,
-    tmx = isoX(h, w, 0), vmx = isoX(h, w, null),
-    rep                      = repeater.bind({ repeat })
-  eta.ini()
-  for (let i = 0, candidateName, paramList; i < h; i++) {
-    [ candidateName, paramList ] = entries[i]
-    progressLogger(i, candidateName, prettyNames, repeat)
-    eta.tick()
-    for (let j = 0, vrow = vmx[i], trow = tmx[i]; j < w; j++) {
-      vrow[j] = rep(functions[j], paramList, paramList.thisArg)
-      trow[j] = eta.tick()
+  const eta = new Eta()
+  const rep = repeater.bind({ repeat })
+  const head = Object.keys(methods), wd = head.length
+  const crostabL = Crostab.build([], head.slice(), [], 'lapse')
+  const crostabR = Crostab.build([], head.slice(), [], 'result')
+
+  let j = 0, rowR, rowL
+  const pretty = head.map(ros).join(CO), funcs = Object.values(methods)
+  for (let [name, params] of indexed(candidates)) {
+    crostabR.sideward.append(name, rowR = Array(wd))
+    crostabL.sideward.append(name, rowL = Array(wd))
+    logger(crostabR.height, name, pretty, repeat)
+    for (eta.tick(), j = 0; j < wd; j++) {
+      rowR[j] = rep(funcs[j], params, params.thisArg)
+      rowL[j] = eta.tick()
     }
   }
-  const crostab = new CrosTab(Object.keys(candidates), functionNames, [ [] ])
-  let [ lapse, result ] = [
-    crostab.copy({ rows: tmx, title: 'lapse' }),
-    crostab.copy({ rows: vmx, title: 'result' })
-  ]
-  if (showAverage) lapse.unshiftRow('average', fluoVector(mapperColumns(tmx, average)))
-  if (showParams) result.unshiftColumn('input', Object.values(candidates))
-  return { lapse, result }
+
+  if (showAverage) crostabL.sideward.prepend('average', fluoVector(columnsMapper(crostabL.rows, col => Stat.average(col)|> round)))
+  if (showParams) crostabR.headward.prepend('input', Object.values(candidates))
+
+  return { lapse: crostabL, result: crostabR }
 }
 
-const repeater = function (callable, params, thisArg) {
-  let { repeat } = this
-  for (--repeat; repeat > 0; repeat--) callable.apply(thisArg, params)
-  return callable.apply(thisArg, params)
+function repeater(method, params, thisArg) {
+  let { repeat: hi } = this
+  for (--hi; hi > 0; hi--) method.apply(thisArg, params)
+  return method.apply(thisArg, params)
 }
 
-const progressLogger = (index, cname, names, repeat) =>
-  `[${ time() }] [${ index }] (${ cname }) tested by [${ names }], repeated * ${ repeat }.` |> console.log
-
-const average = nums => round(nums.reduce((a, b) => a + b, 0) / nums.length)
+function logger(index, cname, names, repeat) { return console.log(`[${time()}] [${index}] (${cname}) tested by [${names}], repeated * ${repeat}.`) }
