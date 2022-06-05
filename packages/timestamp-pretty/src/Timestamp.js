@@ -20,7 +20,6 @@ export class Timestamp {
     if (milliPreset) {
       this.dt = Proj.from({ min: 0, max: 999 }, milliPreset)
     }
-
   }
 
   static build(datePreset = METRO, timePreset = SUBTLE, milliPreset = SUBTLE) {
@@ -43,11 +42,7 @@ export class Timestamp {
         (this.dm.render(month, padDeci(month))) + DASH +
         (this.dd.render(day, padDeci(day)))
       )
-      : (
-        padKilo(year) + DASH +
-        padDeci(month) + DASH +
-        padDeci(day)
-      )
+      : (padKilo(year) + DASH + padDeci(month) + DASH + padDeci(day))
   }
 
   decoHMS(hour, minute, second) {
@@ -64,9 +59,5 @@ export class Timestamp {
       )
   }
 
-  decoMilli(milli) {
-    return this.dt
-      ? (padMilli(milli) |> this.dt(milli))
-      : (padMilli(milli))
-  }
+  decoMilli(milli) { return this.dt ? this.dt.render(milli, padMilli(milli)) : padMilli(milli) }
 }
