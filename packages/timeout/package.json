@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/timeout",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "description": "date & time util toolset",
   "main": "./dist/index.cjs",
   "exports": {

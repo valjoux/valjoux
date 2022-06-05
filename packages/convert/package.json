@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/convert",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "description": "date & time util toolset",
   "main": "./dist/index.cjs",
   "exports": {
@@ -18,7 +18,7 @@
     "test": ""
   },
   "dependencies": {
-    "@valjoux/util-bitwise": "^0.3.15"
+    "@valjoux/util-bitwise": "^0.3.16"
   },
   "repository": {
     "type": "git",
