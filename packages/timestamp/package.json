@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/timestamp",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "variant format of date / times",
   "main": "./dist/index.cjs",
   "exports": {
@@ -18,9 +18,9 @@
     "test": "node -r @babel/register test/timestamp.test.js"
   },
   "dependencies": {
-    "@valjoux/convert": "^0.3.14",
-    "@valjoux/format-date-time": "^0.3.14",
-    "@valjoux/format-time": "^0.3.14"
+    "@valjoux/convert": "^0.3.15",
+    "@valjoux/format-date-time": "^0.3.15",
+    "@valjoux/format-time": "^0.3.15"
   },
   "repository": {
     "type": "git",
