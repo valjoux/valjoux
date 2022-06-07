@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/util-leap-year",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "description": "date & time util toolset",
   "main": "./dist/index.cjs",
   "exports": {
