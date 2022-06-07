@@ -37,18 +37,18 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@spare/enum-chars": "^0.14.5",
-    "@spare/logger": "^0.14.5",
+    "@spare/enum-chars": "^0.14.9",
+    "@spare/logger": "^0.14.9",
     "@vect/enum-matrix-directions": "^0.6.13",
-    "@vect/matrix": "^0.7.11",
-    "@vect/object-mapper": "^0.7.11",
-    "@vect/object-select": "^0.7.11",
-    "@vect/vector": "^0.7.11",
-    "@vect/vector-mapper": "^0.7.11",
-    "@vect/vector-select": "^0.7.11",
+    "@vect/matrix": "^0.7.14",
+    "@vect/object-mapper": "^0.7.14",
+    "@vect/object-select": "^0.7.14",
+    "@vect/vector": "^0.7.14",
+    "@vect/vector-mapper": "^0.7.14",
+    "@vect/vector-select": "^0.7.14",
     "lerna": "^5.0.0",
     "rollup": "^2.75.5",
-    "rollup-plugin-fileinfo": "^0.3.3"
+    "rollup-plugin-fileinfo": "^0.3.4"
   },
   "version": "0.0.0"
 }

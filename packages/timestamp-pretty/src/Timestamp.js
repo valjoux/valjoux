@@ -52,11 +52,7 @@ export class Timestamp {
         (this.ds.render(minute, padDeci(minute))) + RT +
         (this.ds.render(second, padDeci(second)))
       )
-      : (
-        padDeci(hour) + RT +
-        padDeci(minute) + RT +
-        padDeci(second)
-      )
+      : (padDeci(hour) + RT + padDeci(minute) + RT + padDeci(second))
   }
 
   decoMilli(milli) { return this.dt ? this.dt.render(milli, padMilli(milli)) : padMilli(milli) }

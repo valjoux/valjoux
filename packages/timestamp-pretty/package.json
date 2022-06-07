@@ -20,7 +20,7 @@
   "dependencies": {
     "@palett/presets": "^0.9.18",
     "@palett/projector": "^0.9.18",
-    "@spare/enum-chars": "^0.14.5",
+    "@spare/enum-chars": "^0.14.9",
     "@valjoux/convert": "^0.3.16",
     "@valjoux/format-date-time": "^0.3.16",
     "@valjoux/format-time": "^0.3.16"
