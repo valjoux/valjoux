@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/day-shift",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "description": "date & time util toolset",
   "main": "./dist/index.cjs",
   "exports": {
@@ -18,8 +18,8 @@
     "test": "node -r @babel/register test/day-shift.test.js"
   },
   "dependencies": {
-    "@valjoux/util-leap-year": "^0.3.17",
-    "@valjoux/util-month-days": "^0.3.17"
+    "@valjoux/util-leap-year": "^0.3.18",
+    "@valjoux/util-month-days": "^0.3.18"
   },
   "repository": {
     "type": "git",
