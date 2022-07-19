@@ -29,6 +29,11 @@
     "@vect/object-mapper": "^0.7.14",
     "@vect/vector-stat": "^0.7.14"
   },
+  "devDependencies": {
+    "@texting/string-value": "^0.1.7",
+    "@typen/literal": "^0.1.19",
+    "@typen/numeral": "^0.1.19"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hoyeungw/valjoux.git"
