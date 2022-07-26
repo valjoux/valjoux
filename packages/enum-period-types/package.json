@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/enum-period-types",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "description": "date & time util toolset",
   "main": "./dist/index.cjs",
   "exports": {
