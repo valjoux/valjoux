@@ -1,6 +1,6 @@
-import { DecoCrostab, decoCrostab, says } from '@spare/logger'
-import { iterate }                        from '@vect/vector-mapper'
-import { strategies }                     from '../src/strategies'
+import { decoCrostab, says } from '@spare/logger'
+import { iterate }           from '@vect/vector-mapper'
+import { strategies }        from '../src/strategies'
 
 const { lapse, result } = strategies({
   repeat: 2E+6,
@@ -24,5 +24,5 @@ const { lapse, result } = strategies({
     reduce: v => v.reduce((a, b) => a + b, 0),
   }
 })
-lapse |> DecoCrostab() |> says['lapse']
+lapse |> decoCrostab |> says['lapse']
 result |> decoCrostab |> says['result']

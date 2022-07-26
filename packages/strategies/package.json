@@ -19,19 +19,29 @@
   },
   "dependencies": {
     "@analyz/crostab": "^0.1.0",
-    "@aryth/math": "^0.6.1",
-    "@palett/fluo-vector": "^0.9.18",
-    "@spare/enum-chars": "^0.14.10",
-    "@spare/xr": "^0.14.10",
+    "@aryth/math": "^0.6.5",
+    "@palett/fluo-vector": "^0.10.1",
+    "@spare/enum-chars": "^0.14.20",
+    "@spare/xr": "^0.14.20",
     "@valjoux/eta": "^0.3.18",
     "@valjoux/timestamp": "^0.3.18",
-    "@vect/columns-mapper": "^0.7.14",
-    "@vect/object-mapper": "^0.7.14",
-    "@vect/vector-stat": "^0.7.14"
+    "@vect/columns-mapper": "^0.7.15",
+    "@vect/object-mapper": "^0.7.15",
+    "@vect/vector-stat": "^0.7.15"
   },
   "devDependencies": {
+    "@aryth/bound": "^0.6.5",
+    "@ject/oneself": "^0.0.17",
+    "@palett/convert": "^0.10.1",
+    "@palett/dye": "^0.10.1",
+    "@palett/enum-ansi-codes": "^0.10.1",
+    "@palett/fluo": "^0.10.1",
+    "@palett/util-ansi": "^0.10.1",
+    "@spare/deco-crostab": "^0.14.20",
     "@texting/string-value": "^0.1.7",
     "@typen/literal": "^0.1.19",
+    "@typen/num-loose": "^0.1.19",
+    "@typen/num-strict": "^0.1.19",
     "@typen/numeral": "^0.1.19"
   },
   "repository": {

@@ -1,13 +1,13 @@
+import { Crostab }       from '@analyz/crostab'
+import { round }         from '@aryth/math'
 import { fluoVector }    from '@palett/fluo-vector'
 import { CO }            from '@spare/enum-chars'
 import { ros }           from '@spare/xr'
 import { Eta }           from '@valjoux/eta'
 import { time }          from '@valjoux/timestamp'
 import { columnsMapper } from '@vect/columns-mapper'
-import { Crostab }       from '@analyz/crostab'
-import { Stat }          from '@vect/vector-stat'
 import { indexed }       from '@vect/object-mapper'
-import { round }         from '@aryth/math'
+import { Stat }          from '@vect/vector-stat'
 
 /**
  * Cross by candidates and functions, under certain repeat.
@@ -25,29 +25,38 @@ export function strategies({
                              methods,
                              showAverage = true,
                              showParams = false,
+                             showPretty = true,
                            }) {
   const eta = new Eta()
   const rep = repeater.bind({ repeat })
   const head = Object.keys(methods), wd = head.length
-  const crostabL = Crostab.build([], head.slice(), [], 'lapse')
-  const crostabR = Crostab.build([], head.slice(), [], 'result')
+  const lap = Crostab.build([], head.slice(), [], 'lapse')
+  const end = Crostab.build([], head.slice(), [], 'result')
 
-  let j = 0, rowR, rowL
-  const pretty = head.map(ros).join(CO), funcs = Object.values(methods)
-  for (let [name, params] of indexed(candidates)) {
-    crostabR.sideward.append(name, rowR = Array(wd))
-    crostabL.sideward.append(name, rowL = Array(wd))
-    logger(crostabR.height, name, pretty, repeat)
+  let j = 0, endRow, lapRow
+  const pretty = showPretty ? head.map(ros).join(CO) : head.join(CO)
+  const funcs = Object.values(methods)
+  for (let [ name, params ] of indexed(candidates)) {
+    end.sideward.append(name, endRow = Array(wd))
+    lap.sideward.append(name, lapRow = Array(wd))
+    logger(end.height, name, pretty, repeat)
     for (eta.tick(), j = 0; j < wd; j++) {
-      rowR[j] = rep(funcs[j], params, params.thisArg)
-      rowL[j] = eta.tick()
+      endRow[j] = rep(funcs[j], params, params.thisArg)
+      lapRow[j] = eta.tick()
     }
   }
 
-  if (showAverage) crostabL.sideward.prepend('average', fluoVector(columnsMapper(crostabL.rows, col => Stat.average(col)|> round)))
-  if (showParams) crostabR.headward.prepend('input', Object.values(candidates))
+  if (showAverage) {
+    if (showPretty) {
+      lap.sideward.prepend('average', fluoVector(columnsMapper(lap.rows, col => Stat.average(col)|> round)))
+    }
+    else {
+      lap.sideward.prepend('average', columnsMapper(lap.rows, col => Stat.average(col)|> round))
+    }
+  }
+  if (showParams) end.headward.prepend('input', Object.values(candidates))
 
-  return { lapse: crostabL, result: crostabR }
+  return { lapse: lap, result: end }
 }
 
 function repeater(method, params, thisArg) {
