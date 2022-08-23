@@ -1,6 +1,6 @@
 import { AZURE, METRO, SUBTLE } from '@palett/presets'
 import { init }                 from '@vect/vector'
-import { delogger, logger }     from '@spare/logger'
+import { logger }               from '@spare/logger'
 import { timeout }              from '@valjoux/timeout'
 import { rand, randBetw }       from '@aryth/rand'
 import { dateTime }             from '../index'
@@ -15,7 +15,7 @@ const timestamp = Timestamp.build(
 
 const ticks = init(16, x => x)
 
-ticks |> delogger
+ticks |> logger
 
 const randDate = () => new Date(
   randBetw(800, 2030),

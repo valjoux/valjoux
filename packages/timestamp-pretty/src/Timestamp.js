@@ -1,5 +1,5 @@
 import { METRO, SUBTLE } from '@palett/presets'
-import { Proj }          from '@palett/projector'
+import { Projec }        from '@palett/projector'
 import { DASH, QT, RT }  from '@spare/enum-chars'
 import { padDeci }       from '../utils/padDeci'
 import { padKilo }       from '../utils/padKilo'
@@ -7,23 +7,23 @@ import { padMilli }      from '../utils/padMilli'
 
 export class Timestamp {
 
-  constructor(datePreset, timePreset, milliPreset) {
-    if (datePreset) {
-      this.dy = Proj.from({ min: 1990, max: 2030 }, datePreset)
-      this.dm = Proj.from({ min: 1, max: 12 }, datePreset)
-      this.dd = Proj.from({ min: 1, max: 31 }, datePreset)
+  constructor(dt, tm, ml) {
+    if (dt) {
+      this.dy = (new Projec(dt)).load(1990, 2030)
+      this.dm = (new Projec(dt)).load(1, 12)
+      this.dd = (new Projec(dt)).load(1, 31)
     }
-    if (timePreset) {
-      this.dh = Proj.from({ min: 0, max: 23 }, timePreset)
-      this.ds = Proj.from({ min: 0, max: 59 }, timePreset)
+    if (tm) {
+      this.dh = (new Projec(tm)).load(0, 23)
+      this.ds = (new Projec(tm)).load(0, 59)
     }
-    if (milliPreset) {
-      this.dt = Proj.from({ min: 0, max: 999 }, milliPreset)
+    if (ml) {
+      this.dt = (new Projec(ml)).load(0, 999)
     }
   }
 
-  static build(datePreset = METRO, timePreset = SUBTLE, milliPreset = SUBTLE) {
-    return new Timestamp(datePreset, timePreset, milliPreset)
+  static build(dt = METRO, tm = SUBTLE, ml = SUBTLE) {
+    return new Timestamp(dt, tm, ml)
   }
 
   /** @param {Date} dt */

@@ -24,5 +24,6 @@ const { lapse, result } = strategies({
     reduce: v => v.reduce((a, b) => a + b, 0),
   }
 })
+
 lapse |> decoCrostab |> says['lapse']
 result |> decoCrostab |> says['result']

@@ -23,10 +23,10 @@
     "@typen/enum-data-types": "^0.1.19",
     "@typen/nullish": "^0.1.19",
     "@valjoux/timeout": "^0.3.19",
-    "@vect/vector-mapper": "^0.7.15"
+    "@vect/vector-mapper": "^0.7.16"
   },
   "devDependencies": {
-    "systeminformation": "^5.12.1"
+    "systeminformation": "^5.12.6"
   },
   "repository": {
     "type": "git",
