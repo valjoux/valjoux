@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/util-quarter",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "description": "util on quarter",
   "main": "./dist/index.cjs",
   "exports": {
@@ -18,8 +18,8 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/util-leap-year": "^0.3.20",
-    "@valjoux/util-month-days": "^0.3.20"
+    "@valjoux/util-leap-year": "^0.3.21",
+    "@valjoux/util-month-days": "^0.3.21"
   },
   "repository": {
     "type": "git",
@@ -37,5 +37,5 @@
     "url": "https://github.com/hoyeungw/valjoux"
   },
   "homepage": "https://github.com/hoyeungw/valjoux#readme",
-  "gitHead": "92f438d98daa82e64fd8de844cd9f1e55855a8d1"
+  "gitHead": "792790a75c6068fe0d36507ff0e74a895939783f"
 }

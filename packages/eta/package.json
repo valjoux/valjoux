@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/eta",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "description": "Simplistic timer",
   "main": "./dist/index.cjs",
   "exports": {
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@palett/presets": "^0.11.1",
-    "@valjoux/timestamp": "^0.3.20",
-    "@valjoux/timestamp-pretty": "^0.3.20"
+    "@valjoux/timestamp": "^0.3.21",
+    "@valjoux/timestamp-pretty": "^0.3.21"
   },
   "repository": {
     "type": "git",
@@ -37,5 +37,5 @@
     "url": "https://github.com/hoyeungw/valjoux"
   },
   "homepage": "https://github.com/hoyeungw/valjoux#readme",
-  "gitHead": "92f438d98daa82e64fd8de844cd9f1e55855a8d1"
+  "gitHead": "792790a75c6068fe0d36507ff0e74a895939783f"
 }
