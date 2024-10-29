@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/util-quarter",
-  "version": "0.3.21",
+  "version": "0.4.0",
   "description": "util on quarter",
   "type": "module",
   "exports": "./dist/index.js",
