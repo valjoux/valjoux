@@ -2,14 +2,14 @@
   "name": "@valjoux/dashed-date",
   "version": "0.3.21",
   "description": "date & time util toolset",
-  "main": "./dist/index.cjs",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
-  },
+  "type": "module",
+  "exports": "./dist/index.js",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,10 @@
     "test": "node -r @babel/register test/test.index.js"
   },
   "dependencies": {
-    "@valjoux/convert": "^0.3.21",
-    "@valjoux/date-shift": "^0.3.21",
-    "@valjoux/util-leap-year": "^0.3.21",
-    "@valjoux/util-month-days": "^0.3.21"
+    "@valjoux/convert": "workspace:^",
+    "@valjoux/date-shift": "workspace:^",
+    "@valjoux/util-leap-year": "workspace:^",
+    "@valjoux/util-month-days": "workspace:^"
   },
   "repository": {
     "type": "git",

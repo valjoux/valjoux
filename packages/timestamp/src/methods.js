@@ -41,7 +41,7 @@ export const roughlyNow = () => formatTime(new Date())
  * @return {string} - hh:mm:ss.mmm
  * @deprecated use time() instead
  * */
-export const now = () => new Date() |> time
+export const now = () => time(new Date())
 
 
 /**

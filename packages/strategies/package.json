@@ -2,14 +2,14 @@
   "name": "@valjoux/strategies",
   "version": "0.3.21",
   "description": "date & time util toolset",
-  "main": "./dist/index.cjs",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
-  },
+  "type": "module",
+  "exports": "./dist/index.js",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -19,31 +19,31 @@
   },
   "dependencies": {
     "@analyz/crostab": "^0.1.0",
-    "@aryth/math": "^0.6.8",
-    "@palett/fluo-vector": "^0.11.1",
-    "@spare/enum-chars": "^0.15.6",
-    "@spare/xr": "^0.15.6",
-    "@valjoux/eta": "^0.3.21",
-    "@valjoux/timestamp": "^0.3.21",
-    "@vect/columns-mapper": "^0.7.16",
-    "@vect/object-mapper": "^0.7.16",
-    "@vect/vector-stat": "^0.7.16"
+    "@aryth/math": "^0.7.0",
+    "@palett/fluo-vector": "^0.12.0",
+    "@spare/enum-chars": "^0.16.0",
+    "@spare/xr": "^0.16.0",
+    "@valjoux/eta": "workspace:^",
+    "@valjoux/timestamp": "workspace:^",
+    "@vect/columns-mapper": "^0.8.0",
+    "@vect/object-mapper": "^0.8.0",
+    "@vect/vector-stat": "^0.8.0"
   },
   "devDependencies": {
-    "@aryth/bound": "^0.6.8",
+    "@aryth/bound": "^0.7.0",
     "@ject/oneself": "^0.0.17",
-    "@palett/convert": "^0.11.1",
-    "@palett/dye": "^0.11.1",
-    "@palett/enum-ansi-codes": "^0.11.1",
-    "@palett/fluo": "^0.11.1",
-    "@palett/util-ansi": "^0.11.1",
-    "@spare/deco-crostab": "^0.15.6",
-    "@texting/splitter": "^0.1.13",
-    "@texting/string-value": "^0.1.13",
-    "@typen/literal": "^0.1.19",
-    "@typen/num-loose": "^0.1.19",
-    "@typen/num-strict": "^0.1.19",
-    "@typen/numeral": "^0.1.19"
+    "@palett/convert": "^0.12.0",
+    "@palett/dye": "^0.12.0",
+    "@palett/enum-ansi-codes": "^0.12.0",
+    "@palett/fluo": "^0.12.0",
+    "@palett/util-ansi": "^0.12.0",
+    "@spare/deco-crostab": "^0.16.0",
+    "@texting/splitter": "^0.2.1",
+    "@texting/string-value": "^0.2.1",
+    "@typen/literal": "^0.2.0",
+    "@typen/num-loose": "^0.2.0",
+    "@typen/num-strict": "^0.2.0",
+    "@typen/numeral": "^0.2.0"
   },
   "repository": {
     "type": "git",

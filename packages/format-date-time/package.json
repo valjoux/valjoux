@@ -2,14 +2,14 @@
   "name": "@valjoux/format-date-time",
   "version": "0.3.21",
   "description": "timer",
-  "main": "./dist/index.cjs",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
-  },
+  "type": "module",
+  "exports": "./dist/index.js",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
     "test": "node -r @babel/register test/format-date-time.test.js"
   },
   "dependencies": {
-    "@valjoux/format-date": "^0.3.21",
-    "@valjoux/format-time": "^0.3.21"
+    "@valjoux/format-date": "workspace:^",
+    "@valjoux/format-time": "workspace:^"
   },
   "repository": {
     "type": "git",
