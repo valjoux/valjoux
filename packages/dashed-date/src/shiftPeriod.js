@@ -6,7 +6,7 @@ import {
   shiftYear as shiftY
 }                               from '@valjoux/date-shift'
 
-export const shiftDay = (dashed, dif) => shiftD(dashToYmd(dashed), dif) |> ymdToDash
-export const shiftMonth = (dashed, dif) => shiftM(dashToYmd(dashed), dif)|> ymdToDash
-export const shiftQuarter = (dashed, dif) => shiftQ(dashToYmd(dashed), dif)|> ymdToDash
-export const shiftYear = (dashed, dif) => shiftY(dashToYmd(dashed), dif)|> ymdToDash
+export const shiftDay = (dashed, dif) => ymdToDash(shiftD(dashToYmd(dashed), dif))
+export const shiftMonth = (dashed, dif) => ymdToDash(shiftM(dashToYmd(dashed), dif))
+export const shiftQuarter = (dashed, dif) => ymdToDash(shiftQ(dashToYmd(dashed), dif))
+export const shiftYear = (dashed, dif) => ymdToDash(shiftY(dashToYmd(dashed), dif))

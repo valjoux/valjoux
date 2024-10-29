@@ -25,7 +25,7 @@ export function strategies({
                              methods,
                              showAverage = true,
                              showParams = false,
-                             showPretty = true,
+                             showPretty = true
                            }) {
   const eta = new Eta()
   const rep = repeater.bind({ repeat })
@@ -48,10 +48,9 @@ export function strategies({
 
   if (showAverage) {
     if (showPretty) {
-      lap.sideward.prepend('average', fluoVector(columnsMapper(lap.rows, col => Stat.average(col)|> round)))
-    }
-    else {
-      lap.sideward.prepend('average', columnsMapper(lap.rows, col => Stat.average(col)|> round))
+      lap.sideward.prepend('average', fluoVector(columnsMapper(lap.rows, col => round(Stat.average(col)))))
+    } else {
+      lap.sideward.prepend('average', columnsMapper(lap.rows, col => round(Stat.average(col))))
     }
   }
   if (showParams) end.headward.prepend('input', Object.values(candidates))

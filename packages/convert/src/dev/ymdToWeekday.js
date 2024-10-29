@@ -10,6 +10,6 @@ export const ymdToWeekday = ([y, m, d]) => {
   return ~~wd
 }
 
-let today = new Date() |> dateToYmd
+let today = dateToYmd(new Date())
 today = shiftYear(today, 1)
-ymdToWeekday(today) |> logger
+logger(ymdToWeekday(today))
