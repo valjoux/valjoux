@@ -1,7 +1,7 @@
 import { shiftDay, shiftMonth, shiftYear } from '@valjoux/date-shift'
 import { xr, says, deco } from '@spare/logger'
 import { dateToYmd } from '@valjoux/convert'
-import { intToYmd, ymdToInt } from '../src'
+import { intToYmd, ymdToInt } from '../src.js'
 
 // const { dateToYmd, ymdToDate, dashToYmd, ymdToDash, bitYear, bitMonth, bitDay, monthLoHi, seasonLoHi } = Y4MD
 const RN = '\n'

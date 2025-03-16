@@ -7,7 +7,7 @@ import {
   dateToDash, dateToDate, dateToInt, dateToYmd,
   intToDash, intToDate, intToInt, intToYmd,
   ymdToDash, ymdToDate, ymdToInt, ymdToYmd
-}                              from '../src'
+}                              from '../src.js'
 
 const date = new Date()
 const dash = date |> dateToDash

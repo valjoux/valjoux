@@ -18,12 +18,18 @@
     "test": "node -r @babel/register test/timestamp-pretty.test.js"
   },
   "dependencies": {
-    "@palett/presets": "^0.12.0",
-    "@palett/projector": "^0.12.0",
-    "@spare/enum-chars": "^0.16.0",
+    "@palett/presets": "^0.12.20",
+    "@palett/projector": "^0.12.20",
+    "@texting/enum-chars": "^0.2.3"
+  },
+  "devDependencies": {
+    "@palett/presets": "^0.12.20",
+    "@palett/projector": "^0.12.20",
+    "@texting/enum-chars": "^0.2.3",
     "@valjoux/convert": "workspace:^",
     "@valjoux/format-date-time": "workspace:^",
-    "@valjoux/format-time": "workspace:^"
+    "@valjoux/format-time": "workspace:^",
+    "@valjoux/timeout": "workspace:^"
   },
   "repository": {
     "type": "git",

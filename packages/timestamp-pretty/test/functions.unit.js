@@ -1,6 +1,6 @@
-import { date, dateTime, roughTime, time } from '../index'
+import { date, dateTime, roughTime, time } from '../index.js'
 
-date() |> console.log
-time() |> console.log
-roughTime() |> console.log
-dateTime() |> console.log
+console.log(date())
+console.log(time())
+console.log(roughTime())
+console.log(dateTime())

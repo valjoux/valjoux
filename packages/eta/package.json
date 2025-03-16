@@ -18,7 +18,7 @@
     "test": "node -r @babel/register test/eta.test.js"
   },
   "dependencies": {
-    "@palett/presets": "^0.12.0",
+    "@palett/presets": "^0.12.20",
     "@valjoux/timestamp": "workspace:^",
     "@valjoux/timestamp-pretty": "workspace:^"
   },

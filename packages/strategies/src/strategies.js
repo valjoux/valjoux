@@ -1,7 +1,7 @@
 import { Crostab }       from '@analyz/crostab'
 import { round }         from '@aryth/math'
 import { fluoVector }    from '@palett/fluo-vector'
-import { CO }            from '@spare/enum-chars'
+import { CO }            from '@texting/enum-chars'
 import { ros }           from '@spare/xr'
 import { Eta }           from '@valjoux/eta'
 import { time }          from '@valjoux/timestamp'

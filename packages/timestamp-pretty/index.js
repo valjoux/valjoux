@@ -1,6 +1,6 @@
-import { Timestamp } from './src/Timestamp'
+import { Timestamp } from './src/Timestamp.js'
 
-export { Timestamp } from './src/Timestamp'
+export { Timestamp } from './src/Timestamp.js'
 
 
 const timestamp = Timestamp.build()

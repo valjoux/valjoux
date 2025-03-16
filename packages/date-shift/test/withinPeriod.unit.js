@@ -1,5 +1,5 @@
 import { says, xr } from '@spare/logger'
-import { within }   from '../src/withinPeriod'
+import { within }   from '../src/withinPeriod.js'
 
 function withinPeriodTest () {
   const lo = [2019, 12, 31]

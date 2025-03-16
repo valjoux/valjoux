@@ -1,12 +1,12 @@
 import { randBetw } from '@aryth/rand'
 import { says }     from '@palett/says'
-import { AEU }      from '@spare/enum-chars'
+import { AEU }      from '@texting/enum-chars'
 import { decoFlat } from '@spare/logger'
 import { time }     from '@valjoux/timestamp-pretty'
 import { mapper }   from '@vect/object-mapper'
 import si           from 'systeminformation'
 import { linger }   from '../dist/index.esm'
-import { Cylinder } from '../src/Cylinder'
+import { Cylinder } from '../src/Cylinder.js'
 
 says['processes'].attach(time)
 

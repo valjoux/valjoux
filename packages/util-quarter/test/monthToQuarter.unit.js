@@ -1,5 +1,5 @@
 import { says }           from '@palett/says'
-import { monthToQuarter } from '../src/monthToQuarter'
+import { monthToQuarter } from '../src/monthToQuarter.js'
 
 export const test = () => {
   const candidates = [

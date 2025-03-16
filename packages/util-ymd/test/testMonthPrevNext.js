@@ -1,4 +1,4 @@
-import { monthToNext, monthToPrev } from '../src'
+import { monthToNext, monthToPrev } from '../src.js'
 import { delogger, says } from '@spare/logger'
 
 const ymd = [2020, 5, 15]

@@ -1,5 +1,5 @@
 import { bitDay, bitMonth, bitYear, readDay, readMonth, readYear } from '@valjoux/util-bitwise'
-import { dashify }                                                 from './utils/dashify'
+import { dashify }                                                 from './utils/dashify.js'
 
 export const dateToDate = date => new Date(date.getFullYear(), date.getMonth(), date.getDate())
 export const dashToDate = dash => new Date(+dash.slice(0, 4), +dash.slice(5, 7) - 1, +dash.slice(8, 10))

@@ -17,7 +17,7 @@ import {
   ymdToDate,
   ymdToInt,
   ymdToYmd
-}                            from '../src'
+}                            from '../src.js'
 
 export class ConvertStrategies {
   static testDashToSome () {

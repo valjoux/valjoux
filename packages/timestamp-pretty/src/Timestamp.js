@@ -1,24 +1,24 @@
 import { METRO, SUBTLE } from '@palett/presets'
-import { Projec }        from '@palett/projector'
-import { DASH, QT, RT }  from '@spare/enum-chars'
-import { padDeci }       from '../utils/padDeci'
-import { padKilo }       from '../utils/padKilo'
-import { padMilli }      from '../utils/padMilli'
+import { Proj }        from '@palett/projector'
+import { DASH, QT, RT }  from '@texting/enum-chars'
+import { padDeci }       from '../utils/padDeci.js'
+import { padKilo }       from '../utils/padKilo.js'
+import { padMilli }      from '../utils/padMilli.js'
 
 export class Timestamp {
 
   constructor(dt, tm, ml) {
     if (dt) {
-      this.dy = (new Projec(dt)).load(1990, 2030)
-      this.dm = (new Projec(dt)).load(1, 12)
-      this.dd = (new Projec(dt)).load(1, 31)
+      this.dy = (new Proj(dt)).load(1990, 2030)
+      this.dm = (new Proj(dt)).load(1, 12)
+      this.dd = (new Proj(dt)).load(1, 31)
     }
     if (tm) {
-      this.dh = (new Projec(tm)).load(0, 23)
-      this.ds = (new Projec(tm)).load(0, 59)
+      this.dh = (new Proj(tm)).load(0, 23)
+      this.ds = (new Proj(tm)).load(0, 59)
     }
     if (ml) {
-      this.dt = (new Projec(ml)).load(0, 999)
+      this.dt = (new Proj(ml)).load(0, 999)
     }
   }
 

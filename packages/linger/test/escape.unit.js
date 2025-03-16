@@ -5,7 +5,7 @@ import { time }                      from '@valjoux/timestamp-pretty'
 import { select }                    from '@vect/object-select'
 import { mutate }                    from '@vect/vector-mapper'
 import si                            from 'systeminformation'
-import { Escape }                    from '../src/Escape'
+import { Escape }                    from '../src/Escape.js'
 
 
 says['processes'].attach(time)

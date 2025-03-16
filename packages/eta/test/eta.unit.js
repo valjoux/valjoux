@@ -1,5 +1,5 @@
 import { logger } from '@spare/logger'
-import { Eta }    from '../src/Eta'
+import { Eta }    from '../src/Eta.js'
 
 const { timeout } = require('@valjoux/timeout')
 

@@ -1,7 +1,7 @@
 import { dateToDash }     from '@valjoux/convert'
 import { formatDateTime } from '@valjoux/format-date-time'
 import { formatTime }     from '@valjoux/format-time'
-import { milli }          from '../utils/padMilli'
+import { milli }          from '../utils/padMilli.js'
 
 /** @return  {string} - YYYY-MM-DD */
 export const date = (dt = new Date(), dash = '-') => dateToDash(dt, dash)

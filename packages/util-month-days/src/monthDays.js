@@ -1,5 +1,5 @@
 import { isLeap }   from '@valjoux/util-leap-year'
-import { bigMonth } from './bigMonth'
+import { bigMonth } from './bigMonth.js'
 
 /**
  *

@@ -1,4 +1,4 @@
-import { dateToYmd } from '../index'
+import { dateToYmd } from '../index.js'
 import { logger }    from '@spare/logger'
 import { shiftYear } from '@valjoux/date-shift'
 

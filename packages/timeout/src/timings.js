@@ -1,5 +1,5 @@
 import { valid }   from '@typen/nullish'
-import { timeout } from './timeout'
+import { timeout } from './timeout.js'
 
 // wait for at least ms and return value or default. (immediate or no later than ontime time)
 export function overtime(ms, fn, arg) {

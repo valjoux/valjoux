@@ -1,6 +1,6 @@
 import { dateToYmd } from '@valjoux/convert'
 import { delogger, xr } from '@spare/logger'
-import { monthLoHi, seasonLoHi } from '../src/takePeriod'
+import { monthLoHi, seasonLoHi } from '../src/takePeriod.js'
 
 function testLoHi () {
   const ymd = new Date()|> dateToYmd

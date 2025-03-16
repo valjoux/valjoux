@@ -1,6 +1,6 @@
 import { xr, says, deco } from '@spare/logger'
-import { forwardDays } from '../src/forwardDays'
-import { backwardDays } from '../src/backwardDays'
+import { forwardDays } from '../src/forwardDays.js'
+import { backwardDays } from '../src/backwardDays.js'
 
 const
   ORIGINAL = 'original',

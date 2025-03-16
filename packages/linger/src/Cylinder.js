@@ -3,7 +3,7 @@ import { noop }                     from '@ject/noop'
 import { FUN, OBJ }                 from '@typen/enum-data-types'
 import { intime, ontime, overtime } from '@valjoux/timeout'
 import { iterate }                  from '@vect/vector-mapper'
-import { infinite }                 from './infinite'
+import { infinite }                 from './infinite.js'
 
 export class Cylinder {
   collection = []

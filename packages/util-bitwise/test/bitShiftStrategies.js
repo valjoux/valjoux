@@ -4,7 +4,7 @@ import { dateToInt, dateToYmd, ymdToInt } from '@valjoux/convert'
 import {
   readDay, readMonth, readYear,
   bitYear, bitDay, bitMonth,
-} from '../src/bitShifter'
+} from '../src/bitShifter.js'
 
 export class BitShiftStrategies {
   static testReader () {

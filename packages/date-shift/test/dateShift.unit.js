@@ -1,5 +1,5 @@
 import { xr, says, deco } from '@spare/logger'
-import { shiftDay, shiftMonth, shiftYear, shiftQuarter } from '../src/shifters'
+import { shiftDay, shiftMonth, shiftYear, shiftQuarter } from '../src/shifters.js'
 
 const RN = '\n'
 

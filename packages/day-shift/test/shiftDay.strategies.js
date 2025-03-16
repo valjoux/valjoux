@@ -2,10 +2,10 @@ import { decoCrostab, says } from '@spare/logger'
 import { ymdToInt }          from '@valjoux/convert'
 import { shiftDay }          from '@valjoux/date-shift'
 import { strategies }        from '@valjoux/strategies'
-import { backwardDays }      from '../src/backwardDays'
-import { forwardDays }       from '../src/forwardDays'
-import { YMD }               from './archive/class-day-shift/class-ymd'
-import { intDayShift }       from './archive/int-day-shift'
+import { backwardDays }      from '../src/backwardDays.js'
+import { forwardDays }       from '../src/forwardDays.js'
+import { YMD }               from './archive/class-day-shift/class-ymd.js'
+import { intDayShift }       from './archive/int-day-shift.js'
 
 const ymdDayShift = (ymd, dif) => {
   if (dif > 0) return forwardDays(ymd, dif)

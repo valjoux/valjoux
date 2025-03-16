@@ -1,7 +1,7 @@
 import { deco, says, xr }                                                      from '@spare/logger'
 import { dateToDash }                                                          from '@valjoux/convert'
-import { day, month, year }                                                    from '..'
-import { monthHi, monthLo, season, seasonEnds, seasonHi, seasonLo, yearMonth } from '../src/takePeriod'
+import { day, month, year }                                                    from '...js'
+import { monthHi, monthLo, season, seasonEnds, seasonHi, seasonLo, yearMonth } from '../src/takePeriod.js'
 
 const LO = 'lo', HI = 'hi'
 function test () {

@@ -3,19 +3,19 @@ import { decoCrostab }  from '@spare/logger'
 import { says }         from '@spare/xr'
 import { splitLiteral } from '@texting/splitter'
 import { isLiteral }    from '@typen/literal'
-import { strategies }   from '../src/strategies'
+import { strategies }   from '../src/strategies.js'
 
 /** @type {function} */
 const compare = Function.prototype.call.bind(String.prototype.localeCompare)
 
 const { lapse, result } = strategies({
   repeat: 1E+6,
-  candidates: {
+  candidates: makeEmbedded({
     letter: [ 'a', 'b', 'c', 'd' ],
     book: splitLiteral('Sharifian, Farzad - Cultural Linguistics Cultural Conceptualisations and Language').filter(isLiteral),
     // simple: [ [ 1, 2, 3 ], 3 ],
     // exponential: [ [ 1E+0, 1E+1, 1E+2, 1E+3, 1E+4, 1E+5 ], 6 ],
-  } |> makeEmbedded,
+  }),
   methods: {
     bench: vec => (vec.forEach(x => x), vec.at(-1)),
     native: vec => {
@@ -51,5 +51,5 @@ const { lapse, result } = strategies({
   }
 })
 
-lapse |> decoCrostab |> says['lapse']
-result |> decoCrostab |> says['result']
+says['lapse'](decoCrostab(lapse))
+says['result'](decoCrostab(result))

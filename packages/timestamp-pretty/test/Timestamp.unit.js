@@ -3,8 +3,8 @@ import { init }                 from '@vect/vector'
 import { logger }               from '@spare/logger'
 import { timeout }              from '@valjoux/timeout'
 import { rand, randBetw }       from '@aryth/rand'
-import { dateTime }             from '../index'
-import { Timestamp }            from '../src/Timestamp'
+import { dateTime }             from '../index.js'
+import { Timestamp }            from '../src/Timestamp.js'
 
 
 const timestamp = Timestamp.build(
@@ -15,7 +15,7 @@ const timestamp = Timestamp.build(
 
 const ticks = init(16, x => x)
 
-ticks |> logger
+logger(ticks)
 
 const randDate = () => new Date(
   randBetw(800, 2030),
@@ -29,19 +29,19 @@ const randDate = () => new Date(
 
 const testDate = async () => {
   for (let tick of ticks) {
-    timestamp.date(randDate()) |> logger
+    logger(timestamp.date(randDate()))
     await timeout(200)
   }
 }
 const testTime = async () => {
   for (let tick of ticks) {
-    timestamp.time(randDate()) |> logger
+    logger(timestamp.time(randDate()))
     await timeout(200)
   }
 }
 const testDateTime = async () => {
   for (let tick of ticks) {
-    dateTime(randDate()) |> logger
+    logger(dateTime(randDate()))
     await timeout(200)
   }
 }

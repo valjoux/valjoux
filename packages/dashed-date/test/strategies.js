@@ -4,8 +4,8 @@ import { dashify, dashToYmd }          from '@valjoux/convert'
 import { shiftMonth as shiftMonthYmd } from '@valjoux/date-shift'
 import { strategies }                  from '@valjoux/strategies'
 import { monthDays }                   from '@valjoux/util-month-days'
-import { shiftMonth }                  from '../src/shiftPeriod'
-import { day, month, year }            from '../src/utils/readParts'
+import { shiftMonth }                  from '../src/shiftPeriod.js'
+import { day, month, year }            from '../src/utils/readParts.js'
 
 const { lapse, result } = strategies({
   repeat: 1E+6,

@@ -3,7 +3,7 @@ import { decoCrostab, says, xr } from '@spare/logger'
 import { dashToInt, dashToYmd }  from '@valjoux/convert'
 import { within as withinYmd }   from '@valjoux/date-shift'
 import { strategies }            from '@valjoux/strategies'
-import { within }                from '../src/withinPeriod'
+import { within }                from '../src/withinPeriod.js'
 
 function withinTest () {
   const lo = [2019, 12, 31]

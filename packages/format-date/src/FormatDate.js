@@ -1,4 +1,4 @@
-import { DATE_CONFIG } from './dateConfig'
+import { DATE_CONFIG } from './dateConfig.js'
 
 /** @type {Intl.DateTimeFormat} */
 export const FormatDate = new Intl.DateTimeFormat(undefined, DATE_CONFIG)

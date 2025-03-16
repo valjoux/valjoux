@@ -1,7 +1,7 @@
-import { DA }                from '@spare/enum-chars'
+import { DA }                from '@texting/enum-chars'
 import { decoCrostab, says } from '@spare/logger'
 import { strategies }        from '@valjoux/strategies'
-import { dashify }           from '../../src/utils/dashify'
+import { dashify }           from '../../src/utils/dashify.js'
 
 const { lapse, result } = strategies({
   repeat: 2E+6,
