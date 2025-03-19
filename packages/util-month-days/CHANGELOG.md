@@ -1,5 +1,13 @@
 # @valjoux/util-month-days
 
+## 0.4.1
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies
+  - @valjoux/util-leap-year@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @valjoux/strategies
 
+## 0.4.1
+
+### Patch Changes
+
+- update dependencies
+- Updated dependencies
+  - @valjoux/eta@0.4.1
+  - @valjoux/timestamp@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes

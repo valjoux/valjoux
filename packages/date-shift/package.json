@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/date-shift",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "date & time util toolset",
   "type": "module",
   "exports": "./dist/index.js",
@@ -18,7 +18,7 @@
     "test": "node -r @babel/register test/date-shift.test.js"
   },
   "dependencies": {
-    "@aryth/comparer": "^0.7.0",
+    "@aryth/comparer": "^0.7.7",
     "@valjoux/convert": "workspace:^",
     "@valjoux/day-shift": "workspace:^",
     "@valjoux/util-month-days": "workspace:^",

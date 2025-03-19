@@ -1,8 +1,7 @@
 import { Crostab }       from '@analyz/crostab'
 import { round }         from '@aryth/math'
-import { fluoVector }    from '@palett/fluo-vector'
+import { ros }           from '@spare/plot'
 import { CO }            from '@texting/enum-chars'
-import { ros }           from '@spare/xr'
 import { Eta }           from '@valjoux/eta'
 import { time }          from '@valjoux/timestamp'
 import { columnsMapper } from '@vect/columns-mapper'
@@ -48,7 +47,7 @@ export function strategies({
 
   if (showAverage) {
     if (showPretty) {
-      lap.sideward.prepend('average', fluoVector(columnsMapper(lap.rows, col => round(Stat.average(col)))))
+      lap.sideward.prepend('average', columnsMapper(lap.rows, col => round(Stat.average(col))))
     } else {
       lap.sideward.prepend('average', columnsMapper(lap.rows, col => round(Stat.average(col))))
     }
