@@ -16,7 +16,9 @@ export const dashToInt = dash => bitYear(+dash.slice(0, 4)) + bitMonth(+dash.sli
 export const intToInt = int => bitYear(int >> 9) + bitMonth(int >> 5) + bitDay(int >> 0)
 export const ymdToInt = ymd => bitYear(ymd[0]) + bitMonth(ymd[1]) + bitDay(ymd[2])
 
-export const dateToYmd = date => [date.getFullYear(), date.getMonth() + 1, date.getDate()]
-export const dashToYmd = dash => [+dash.slice(0, 4), +dash.slice(5, 7), +dash.slice(8, 10)]
-export const intToYmd = int => [readYear(int), readMonth(int), readDay(int)]
-export const ymdToYmd = ymd => [+ymd[0], +ymd[1], +ymd[2]]
+export const dateToYmd = date => [ date.getFullYear(), date.getMonth() + 1, date.getDate() ]
+export const dashToYmd = dash => [ +dash.slice(0, 4), +dash.slice(5, 7), +dash.slice(8, 10) ]
+export const intToYmd = int => [ readYear(int), readMonth(int), readDay(int) ]
+export const ymdToYmd = ymd => [ +ymd[0], +ymd[1], +ymd[2] ]
+
+export { dashify } from './utils/dashify.js'
