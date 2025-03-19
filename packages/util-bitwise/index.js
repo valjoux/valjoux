@@ -6,4 +6,4 @@ export {
   bitYear,
   bitMonth,
   bitDay,
-} from './src/bitShifter'
+} from './src/bitShifter.js'

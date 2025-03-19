@@ -1,5 +1,11 @@
 # @valjoux/timeout
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+
 ## 0.4.1
 
 ### Patch Changes

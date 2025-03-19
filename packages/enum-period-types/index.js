@@ -6,4 +6,4 @@ export {
   QUARTERLY,
   YEARLY,
   PENTALY,
-} from './resources/periodTypes'
+} from './resources/periodTypes.js'

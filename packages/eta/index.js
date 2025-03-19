@@ -1,1 +1,1 @@
-export { Eta } from './src/Eta'
+export { Eta } from './src/Eta.js'

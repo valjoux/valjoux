@@ -1,5 +1,14 @@
 # @valjoux/format-date-time
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+- Updated dependencies
+  - @valjoux/format-date@0.4.2
+  - @valjoux/format-time@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

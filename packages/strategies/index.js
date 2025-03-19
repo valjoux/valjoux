@@ -1,1 +1,1 @@
-export { strategies } from './src/strategies'
+export { strategies } from './src/strategies.js'

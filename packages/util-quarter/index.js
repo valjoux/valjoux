@@ -1,1 +1,1 @@
-export { monthToQuarter } from './src/monthToQuarter'
+export { monthToQuarter } from './src/monthToQuarter.js'

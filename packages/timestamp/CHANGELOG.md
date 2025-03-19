@@ -1,5 +1,15 @@
 # @valjoux/timestamp
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+- Updated dependencies
+  - @valjoux/convert@0.4.2
+  - @valjoux/format-date-time@0.4.2
+  - @valjoux/format-time@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

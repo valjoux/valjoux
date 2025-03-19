@@ -1,5 +1,13 @@
 # @valjoux/convert
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+- Updated dependencies
+  - @valjoux/util-bitwise@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

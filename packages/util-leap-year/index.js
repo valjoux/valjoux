@@ -1,1 +1,1 @@
-export { isLeap } from './src/utils'
+export { isLeap } from './src/utils.js'

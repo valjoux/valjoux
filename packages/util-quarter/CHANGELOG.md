@@ -1,5 +1,14 @@
 # @valjoux/util-quarter
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+- Updated dependencies
+  - @valjoux/util-leap-year@0.4.2
+  - @valjoux/util-month-days@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

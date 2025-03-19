@@ -1,2 +1,2 @@
-export { forwardDays } from './src/forwardDays'
-export { backwardDays } from './src/backwardDays'
+export { forwardDays } from './src/forwardDays.js'
+export { backwardDays } from './src/backwardDays.js'

@@ -1,5 +1,14 @@
 # @valjoux/eta
 
+## 0.4.2
+
+### Patch Changes
+
+- minor fix
+- Updated dependencies
+  - @valjoux/timestamp@0.4.2
+  - @valjoux/timestamp-pretty@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

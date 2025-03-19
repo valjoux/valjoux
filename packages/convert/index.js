@@ -15,6 +15,6 @@ export {
   dashToYmd,
   intToYmd,
   // ymdToYmd,
-} from './src/index'
+} from './src/index.js'
 
-export { dashify } from './src/utils/dashify'
+export { dashify } from './src/utils/dashify.js'
