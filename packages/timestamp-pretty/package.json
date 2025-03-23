@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/timestamp-pretty",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "variant format of date / times",
   "type": "module",
   "exports": "./index.js",
@@ -18,8 +18,8 @@
     "test": "node -r @babel/register test/timestamp-pretty.test.js"
   },
   "dependencies": {
-    "@palett/presets": "^0.12.25",
-    "@palett/projector": "^0.12.25",
+    "@palett/presets": "^0.12.28",
+    "@palett/projector": "^0.12.28",
     "@texting/enum-chars": "^0.2.3"
   },
   "devDependencies": {

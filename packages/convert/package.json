@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/convert",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "date & time util toolset",
   "type": "module",
   "exports": "./index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/format-date",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "timer",
   "type": "module",
   "exports": "./index.js",

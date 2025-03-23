@@ -1,6 +1,6 @@
 {
   "name": "@valjoux/eta",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Simplistic timer",
   "type": "module",
   "exports": "./index.js",
@@ -18,7 +18,7 @@
     "test": "node -r @babel/register test/eta.test.js"
   },
   "dependencies": {
-    "@palett/presets": "^0.12.25",
+    "@palett/presets": "^0.12.28",
     "@valjoux/timestamp": "workspace:^",
     "@valjoux/timestamp-pretty": "workspace:^"
   },
